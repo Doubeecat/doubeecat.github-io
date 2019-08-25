@@ -67,7 +67,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/25/m2wsaj.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/25/m2vk9J.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/25/m2vA39.png">
-<meta property="og:updated_time" content="2019-08-25T16:07:18.625Z">
+<meta property="og:updated_time" content="2019-08-25T16:11:25.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树链剖分 学习笔记">
 <meta name="twitter:description" content="终于鸽出来了">
@@ -283,7 +283,7 @@
                 
               
 
-              <time title="创建时间：2019-08-26 00:04:50 / 修改时间：00:07:18" itemprop="dateCreated datePublished" datetime="2019-08-26T00:04:50+08:00">2019-08-26</time>
+              <time title="创建时间：2019-08-26 00:04:50 / 修改时间：00:11:25" itemprop="dateCreated datePublished" datetime="2019-08-26T00:04:50+08:00">2019-08-26</time>
             </span>
           
             
@@ -332,7 +332,7 @@
 <p>这里，<strong>红色的边</strong>构成重链，<strong>蓝色的点</strong>为重儿子，<strong>绿色的点</strong>为轻儿子。</p>
 <p>注意，这里的 7 号与 8 号节点子树大小相同，因此我们选择<strong>编号靠前</strong>的儿子为重儿子。</p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>一般来说，树链剖分通过两遍 dfs 来实现。</p>
-<h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">siz[x] 子树x的大小</span><br><span class="line">top[x] x所在链的顶端</span><br><span class="line">fat[x] x的父亲</span><br><span class="line">dep[x] x的深度</span><br><span class="line">son[x] x的重儿子</span><br></pre></td></tr></table></figure>
+<h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">siz[x] <span class="comment">//子树x的大小</span></span><br><span class="line">top[x] <span class="comment">//x所在链的顶端</span></span><br><span class="line">fat[x] <span class="comment">//x的父亲</span></span><br><span class="line">dep[x] <span class="comment">//x的深度</span></span><br><span class="line">son[x] <span class="comment">//x的重儿子</span></span><br></pre></td></tr></table></figure>
 
 <p>第一遍 dfs ，我们先处理出每个节点的<strong>父亲</strong>，<strong>深度</strong>，<strong>子树大小</strong>，<strong>重儿子</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">	siz[u] = <span class="number">1</span>;</span><br><span class="line">    son[u] = <span class="number">0</span>;</span><br><span class="line">    fat[u] = f;</span><br><span class="line">    dep[u] = dep[f] + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = hd[x];i;i = nxt[i]) &#123;</span><br><span class="line">		<span class="keyword">int</span> v = to[i];</span><br><span class="line">        <span class="keyword">if</span> (v != f) &#123;</span><br><span class="line">			dfs1(v,u);</span><br><span class="line">            siz[u] += siz[v];</span><br><span class="line">            <span class="keyword">if</span> (siz[v] &gt; siz[son[u]]) &#123;</span><br><span class="line">                son[u] = v;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
