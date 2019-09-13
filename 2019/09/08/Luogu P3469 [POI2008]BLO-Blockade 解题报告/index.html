@@ -55,19 +55,22 @@
   };
 </script>
 
-  <meta name="description" content="数位DP+技巧">
-<meta name="keywords" content="数位DP,DP,数论">
+  <meta name="description" content="Tarjan好题">
+<meta name="keywords" content="图论,Tarjan,割点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces55D-Beautiful Numbers  解题报告">
-<meta property="og:url" content="http://yoursite.com/2019/08/13/Codeforces55D-Beautiful Numbers解题报告/index.html">
+<meta property="og:title" content="Luogu P3469 [POI2008]BLO-Blockade 解题报告">
+<meta property="og:url" content="http://yoursite.com/2019/09/08/Luogu P3469 [POI2008]BLO-Blockade 解题报告/index.html">
 <meta property="og:site_name" content="Doubeecat&#39;s Blog">
-<meta property="og:description" content="数位DP+技巧">
+<meta property="og:description" content="Tarjan好题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-13T11:44:14.000Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/08/n3Muo8.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/08/n3MWFO.png">
+<meta property="og:updated_time" content="2019-09-13T14:43:55.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Codeforces55D-Beautiful Numbers  解题报告">
-<meta name="twitter:description" content="数位DP+技巧">
-  <link rel="canonical" href="http://yoursite.com/2019/08/13/Codeforces55D-Beautiful Numbers解题报告/">
+<meta name="twitter:title" content="Luogu P3469 [POI2008]BLO-Blockade 解题报告">
+<meta name="twitter:description" content="Tarjan好题">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/08/n3Muo8.png">
+  <link rel="canonical" href="http://yoursite.com/2019/09/08/Luogu P3469 [POI2008]BLO-Blockade 解题报告/">
 
 
 <script id="page-configurations">
@@ -81,7 +84,7 @@
   };
 </script>
 
-  <title>Codeforces55D-Beautiful Numbers  解题报告 | Doubeecat's Blog</title>
+  <title>Luogu P3469 [POI2008]BLO-Blockade 解题报告 | Doubeecat's Blog</title>
   
 
 
@@ -247,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/Codeforces55D-Beautiful Numbers解题报告/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/08/Luogu P3469 [POI2008]BLO-Blockade 解题报告/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Doubeecat">
@@ -261,7 +264,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Codeforces55D-Beautiful Numbers  解题报告
+          <h1 class="post-title" itemprop="name headline">Luogu P3469 [POI2008]BLO-Blockade 解题报告
 
             
           </h1>
@@ -278,11 +281,19 @@
                 
               
 
-              <time title="创建时间：2019-08-13 19:09:52 / 修改时间：19:44:14" itemprop="dateCreated datePublished" datetime="2019-08-13T19:09:52+08:00">2019-08-13</time>
+              <time title="创建时间：2019-09-08 00:17:33" itemprop="dateCreated datePublished" datetime="2019-09-08T00:17:33+08:00">2019-09-08</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-13 22:43:55" itemprop="dateModified" datetime="2019-09-13T22:43:55+08:00">2019-09-13</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -300,7 +311,7 @@
           
 
           
-            <div class="post-description">数位DP+技巧</div>
+            <div class="post-description">Tarjan好题</div>
           
 
         </div>
@@ -312,21 +323,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a href="http://codeforces.com/problemset/problem/55/D" target="_blank" rel="noopener">Codeforces55D-Beautiful Numbers</a></p>
-<h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>定义“美丽的数字”为：被它自己的每一位数上的数整除的数</p>
-<p>给定区间[L,R]，求有多少个美丽的数字</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>显然的数位DP，简单拉个板子就写完了.但是定义状态的时候发现会存不下，我们考虑压缩一下他们的状态。</p>
-<p>引入两条重要的性质：</p>
+        <h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.org/problem/P3469" target="_blank" rel="noopener">[POI2008]BLO-Blockade</a></p>
+<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>有 $n$ 个节点的无向图，定义封锁一个点为切断这个点的所有连边。求每个节点被封锁后图内的不连通有序点对个数。</p>
+<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>Tarjan。</p>
+<p>首先分类讨论一下，封锁一个点有两种情况：</p>
 <ol>
-<li>如果一个数能整除它的所有数位上的数，那么它一定能整除所有这些数位上的数的最小公倍数</li>
-<li>而$1$到$9$的最小公倍数是$2520$，所有数可能形成的数位上所有数的最小公倍数一定是$2520$的因数</li>
+<li><p>不是割点</p>
+<p>这种情况好搞，从图中显然可以看出只有自己和其他 $n - 1 $ 个节点不连通，因为是有序节点，所以答案为 $2 \times (n-1)$</p>
+<p><img src="https://s2.ax1x.com/2019/09/08/n3Muo8.png" alt></p>
+</li>
+<li><p>是割点</p>
+<p>这种情况就有意思了。</p>
+<p>我们可以发现，如果点 i 为割点，显然去掉这个点之后整个图会变成几个联通块，如下图：</p>
+<p><img src="https://s2.ax1x.com/2019/09/08/n3MWFO.png" alt></p>
+<p>这种情况我们也很好发现，把联通块的大小两两相乘可得答案。</p>
+<p>记第 i 个联通块为$s_i$</p>
+<p>但是把联通块大小两两相乘的复杂度为 $O(n^2)$ 不能接受，我们可以在 dfs 时把搜索树子树大小算出来，记为 $siz[i]$</p>
+<p>最后的答案即为： </p>
+<p>$(n - 1 - \sum_{i=1}^{t}siz[s_k])*(1+\sum_{i=1}^{t}siz[s_k])$ </p>
+</li>
 </ol>
-<p>因为$lcm(1,2,3,4,5,6,7,8,9) = 2520$，所以直接定义$dp[i][j][k]$为前$i$位数$mod$$  2520 = j$，前$i$位数的$lcm$为$j$。</p>
-<p>然而，这样设计状态出来会发现总状态数达到了$20<em>2520</em>2520 = 127008000$，显然存不下，我们再次考虑进行优化。观察到第二维还是会有冗余，手打个表可以发现总共只有48种可能性，再次进行压缩。</p>
-<p>根据性质1，如果最后的数能整除$k$，那么它一定能整除它各位数字的最小公倍数。由于性质2，所有可能出现的$k$都是$2520$的因数，借助这一性质，将$j$取模$2520$，若所得的结果整除$k$，那么原来的数也一定整除$k$。所以转移方程就很自然的出来了：</p>
-<p>$f[i][j][k] = \sum f[i][lcm(k,x)][j*10+x \mod 2520|1 \leq x\leq Maxx]$</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILE A</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 2520 + 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 200</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> v = getchar();ll x = <span class="number">0</span>,f = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">isdigit</span>(v)) &#123;<span class="keyword">if</span> (v == <span class="string">'-'</span>)&#123;f = <span class="number">-1</span>;&#125;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(v)) &#123;x = x * <span class="number">10</span> + v - <span class="number">48</span>;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> x * f;</span><br><span class="line">&#125;</span><br><span class="line">ll dp[<span class="number">20</span>][<span class="number">50</span>][N],dig[N],ind[N],cnt,mod,num[N],l,r,c;<span class="function">ll <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">return</span> b?gcd(b,a%b):a;&#125;</span><br><span class="line"><span class="function">ll <span class="title">mylcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">return</span> a/gcd(a,b)*b;&#125;</span><br><span class="line"><span class="function">ll <span class="title">dfs</span><span class="params">(ll now,ll lcm,ll sum,<span class="keyword">int</span> limit)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!now) &#123;</span><br><span class="line">		<span class="keyword">return</span> sum % lcm == <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (!limit &amp;&amp; dp[now][num[lcm]][sum] != <span class="number">-1</span>) <span class="keyword">return</span> dp[now][num[lcm]][sum];</span><br><span class="line">	ll ans = <span class="number">0</span>,ret = (limit)?dig[now]:<span class="number">9</span>;</span><br><span class="line">	<span class="keyword">for</span> (ll i = <span class="number">0</span>;i &lt;= ret;++i) &#123;</span><br><span class="line">		<span class="keyword">int</span> lcm1 = i ? mylcm(lcm,i) : lcm;</span><br><span class="line">		<span class="keyword">int</span> sum1 = (sum * <span class="number">10</span> + i) % mod;</span><br><span class="line">		ans += dfs(now<span class="number">-1</span>,lcm1,sum1,limit&amp;&amp;i==ret);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span> (!limit) &#123;</span><br><span class="line">		dp[now][num[lcm]][sum] = ans;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">work</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (x) &#123;</span><br><span class="line">		dig[++len] = x % <span class="number">10</span>;x /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dfs(len,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(dp,<span class="number">-1</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">	<span class="keyword">int</span> T = read();</span><br><span class="line">	mod = <span class="number">2520</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= mod;++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (mod % i == <span class="number">0</span>) &#123;</span><br><span class="line">			num[i] = cnt++;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (T--) &#123;</span><br><span class="line">		ll l = read(),r = read();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,work(r) - work(l<span class="number">-1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cctype&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 100010;</span><br><span class="line">const int M = 500010&lt;&lt;1;</span><br><span class="line">inline int read() &#123;</span><br><span class="line">	int x = 0,f = 1;char v = getchar();</span><br><span class="line">	while (!isdigit(v)) &#123;if (v ==&apos;-&apos;) f = -1;v = getchar();&#125;</span><br><span class="line">	while (isdigit(v)) &#123;x = x * 10 + v - 48;v = getchar();&#125;</span><br><span class="line">	return x * f;</span><br><span class="line">&#125;</span><br><span class="line">int nxt[M],hd[N],to[M],tot = 1,cnt,dfn[N],low[N],siz[N],n,m;</span><br><span class="line">long long ans[N];</span><br><span class="line">bool cut[N];</span><br><span class="line"></span><br><span class="line">inline void adde(int u,int v) &#123;</span><br><span class="line">	to[++tot] = v;nxt[tot] = hd[u];hd[u] = tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline void addedge(int u,int v) &#123;</span><br><span class="line">	adde(u,v);adde(v,u);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void tarjan(int x) &#123;</span><br><span class="line">	dfn[x] = low[x] = ++cnt;</span><br><span class="line">	siz[x] = 1;</span><br><span class="line">	int flag = 0,sum = 0;</span><br><span class="line">	for (int i = hd[x];i;i = nxt[i]) &#123;</span><br><span class="line">		int v = to[i];</span><br><span class="line">		if (!dfn[v]) &#123;</span><br><span class="line">			tarjan(v);</span><br><span class="line">			low[x] = min(low[x],low[v]);</span><br><span class="line">			siz[x] += siz[v];</span><br><span class="line">			if (low[v] &gt;= dfn[x]) &#123;</span><br><span class="line">				flag++;</span><br><span class="line">				ans[x] += (long long)siz[v]*(n - siz[v]);</span><br><span class="line">				sum += siz[v];</span><br><span class="line">				if (x != 1 || flag &gt; 1) &#123;</span><br><span class="line">					cut[x] = 1;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;	</span><br><span class="line">		else &#123;</span><br><span class="line">			low[x] = min(low[x],dfn[v]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if (cut[x]) &#123;</span><br><span class="line">		ans[x] += (long long)(n - sum - 1) * (sum + 1) + (n - 1);</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		ans[x] = 2*(n-1);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	n = read(),m = read();</span><br><span class="line">	for (int i = 1;i &lt;= m;++i) &#123;</span><br><span class="line">		int x = read(),y = read();</span><br><span class="line">		if (x == y) &#123;</span><br><span class="line">			continue;</span><br><span class="line">		&#125;</span><br><span class="line">		addedge(x,y);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	tarjan(1);</span><br><span class="line">	for (int i = 1;i &lt;= n;++i) &#123;</span><br><span class="line">		printf(&quot;%lld\n&quot;,ans[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p>部分思路来自于lyd的《算法竞赛进阶指南》</p>
 
     </div>
 
@@ -342,11 +361,11 @@
           
           <div class="post-tags">
             
-              <a href="/tags/数位DP/" rel="tag"># 数位DP</a>
+              <a href="/tags/图论/" rel="tag"># 图论</a>
             
-              <a href="/tags/DP/" rel="tag"># DP</a>
+              <a href="/tags/Tarjan/" rel="tag"># Tarjan</a>
             
-              <a href="/tags/数论/" rel="tag"># 数论</a>
+              <a href="/tags/割点/" rel="tag"># 割点</a>
             
           </div>
         
@@ -356,8 +375,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/11/经验教训/" rel="next" title="经验教训">
-                  <i class="fa fa-chevron-left"></i> 经验教训
+                <a href="/2019/09/07/Luogu P4999 烦人的数学作业 解题报告/" rel="next" title="Luogu P4999 烦人的数学作业 解题报告">
+                  <i class="fa fa-chevron-left"></i> Luogu P4999 烦人的数学作业 解题报告
                 </a>
               
             </div>
@@ -365,10 +384,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/22/CodeForcesRound-1206题解/" rel="prev" title="CodeForcesRound#1206题解">
-                  CodeForcesRound#1206题解 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -592,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目链接"><span class="nav-number">1.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意简述"><span class="nav-number">2.</span> <span class="nav-text">题意简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目链接："><span class="nav-number">1.</span> <span class="nav-text">题目链接：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述："><span class="nav-number">2.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路："><span class="nav-number">3.</span> <span class="nav-text">解题思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码："><span class="nav-number">4.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考："><span class="nav-number">5.</span> <span class="nav-text">参考：</span></a></li></ol></div>
             
 
           </div>
