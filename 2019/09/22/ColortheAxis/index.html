@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="取模好题">
-<meta name="keywords" content="数位DP,DP">
+  <meta name="description" content="线段树水题">
+<meta name="keywords" content="线段树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Luogu P4999 烦人的数学作业 解题报告">
-<meta property="og:url" content="https://www.zzlblog.ga/2019/09/07/Luogu P4999 烦人的数学作业 解题报告/index.html">
+<meta property="og:title" content="Luogu1840 Color the Axis_NOI导刊2011提高（05） 解题报告">
+<meta property="og:url" content="https://www.zzlblog.ga/2019/09/22/ColortheAxis/index.html">
 <meta property="og:site_name" content="Doubeecat&#39;s Blog">
-<meta property="og:description" content="取模好题">
+<meta property="og:description" content="线段树水题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-07T15:51:00.618Z">
+<meta property="og:updated_time" content="2019-09-22T03:21:33.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luogu P4999 烦人的数学作业 解题报告">
-<meta name="twitter:description" content="取模好题">
-  <link rel="canonical" href="https://www.zzlblog.ga/2019/09/07/Luogu P4999 烦人的数学作业 解题报告/">
+<meta name="twitter:title" content="Luogu1840 Color the Axis_NOI导刊2011提高（05） 解题报告">
+<meta name="twitter:description" content="线段树水题">
+  <link rel="canonical" href="https://www.zzlblog.ga/2019/09/22/ColortheAxis/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>Luogu P4999 烦人的数学作业 解题报告 | Doubeecat's Blog</title>
+  <title>Luogu1840 Color the Axis_NOI导刊2011提高（05） 解题报告 | Doubeecat's Blog</title>
   
 
 
@@ -247,7 +247,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2019/09/07/Luogu P4999 烦人的数学作业 解题报告/">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2019/09/22/ColortheAxis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Doubeecat">
@@ -261,7 +261,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Luogu P4999 烦人的数学作业 解题报告
+          <h1 class="post-title" itemprop="name headline">Luogu1840 Color the Axis_NOI导刊2011提高（05） 解题报告
 
             
           </h1>
@@ -278,7 +278,7 @@
                 
               
 
-              <time title="创建时间：2019-09-07 23:48:56 / 修改时间：23:51:00" itemprop="dateCreated datePublished" datetime="2019-09-07T23:48:56+08:00">2019-09-07</time>
+              <time title="创建时间：2019-09-22 11:12:14 / 修改时间：11:21:33" itemprop="dateCreated datePublished" datetime="2019-09-22T11:12:14+08:00">2019-09-22</time>
             </span>
           
             
@@ -300,7 +300,7 @@
           
 
           
-            <div class="post-description">取模好题</div>
+            <div class="post-description">线段树水题</div>
           
 
         </div>
@@ -312,18 +312,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.org/problem/P4999" target="_blank" rel="noopener">P4999 烦人的数学作业</a></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>给出一个区间$L - R$，求$L$到$R$区间内<strong>每个数的数字和</strong>，如123这个数的数字和为1+2+3=6</p>
-<p>有T组数据，结果$\mod 10^9+7$</p>
-<p>$（1 \leq L \leq R \leq 10^18）$</p>
-<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p><del>确实烦人</del></p>
-<p>第一眼看上去跟<a href="https://www.luogu.org/problem/P2602" target="_blank" rel="noopener">[ZJOI2010]数字计数</a>很像，确实是，把那个题的数位DP抄过来乘个 i 这题就没了。</p>
-<p>那为啥要写这个题解呢？因为这个题坑多。</p>
-<ol>
-<li>注意开 long long</li>
-<li>取模很坑，请使用传统技巧<code>(ans % mod + mod) % mod</code>，正确性证明应该不用多说</li>
-</ol>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = N &lt;&lt; <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> v = getchar();<span class="keyword">int</span> x = <span class="number">0</span>,f = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">isdigit</span>(v)) &#123;<span class="keyword">if</span> (v == <span class="string">'-'</span>)f = <span class="number">-1</span>;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(v)) &#123;x = x * <span class="number">10</span> + v - <span class="number">48</span>;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> x * f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> num[N],dp[N][N],l,r;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> pos,<span class="keyword">bool</span> limit,<span class="keyword">bool</span> zer,<span class="keyword">int</span> dig,<span class="keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span> (pos == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="keyword">if</span> (!limit &amp;&amp; dp[pos][sum]) <span class="keyword">return</span> dp[pos][sum];</span><br><span class="line">	<span class="keyword">int</span> up = <span class="number">9</span>;</span><br><span class="line">	<span class="keyword">if</span> (limit) up = num[pos];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt;= up;++j) &#123;</span><br><span class="line">		ans += dfs(pos<span class="number">-1</span>,(j==up)&amp;&amp;limit,zer||j,dig,sum+((j||zer)&amp;&amp;(j==dig)));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (!limit&amp;&amp;zer)&#123;</span><br><span class="line">		dp[pos][sum] = ans;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">work</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">	<span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (p) &#123;</span><br><span class="line">		num[++len] = p % <span class="number">10</span>;</span><br><span class="line">		p /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dfs(len,<span class="number">1</span>,<span class="number">0</span>,w,<span class="number">0</span>) % mod;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> T = read();</span><br><span class="line">	<span class="keyword">while</span> (T--) &#123;</span><br><span class="line">		<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">		l = read(),r = read();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt;= <span class="number">9</span>;++i) &#123;</span><br><span class="line">			ans += ((work(r,i) - work(l<span class="number">-1</span>,i) % mod) * i) % mod;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,(ans%mod+mod)%mod);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.org/problem/P1840" target="_blank" rel="noopener">Color the Axis_NOI导刊2011提高（05）</a></p>
+<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>在一条数轴上有$N$个点，分别是$1 \rightarrow N$。一开始所有的点都被染成黑色。接着我们进行$M$次操作，第$i$次操作将$[L_i,R_i]$这些点染成白色。请输出每个操作执行后剩余黑色点的个数。</p>
+<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>这个题的思路很简单，把黑色的部分当成1，白色的部分当成0来处理，使用支持区间修改，区间查询的数据结构维护一下即可。  </p>
+<p>如果你和我一样是写线段树的，那么更简单了，在下传lazytag的时候只需要将其的左右节点清零即可。</p>
+<p>另外在区间查询时由于每次都是查整段的，所以只需要输出<code>tree[1].num</code>即可</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">200010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">500010</span>&lt;&lt;<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">0</span>,f = <span class="number">1</span>;<span class="keyword">char</span> v = getchar();</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">isdigit</span>(v)) &#123;<span class="keyword">if</span> (v ==<span class="string">'-'</span>) f = <span class="number">-1</span>;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(v)) &#123;x = x * <span class="number">10</span> + v - <span class="number">48</span>;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> x * f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> l,r,num,tag;</span><br><span class="line">&#125;tree[N&lt;&lt;<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	tree[p].l = l;tree[p].r = r;</span><br><span class="line">	<span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">		tree[p].num = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	build (p &lt;&lt; <span class="number">1</span>,l,mid);</span><br><span class="line">	build (p &lt;&lt; <span class="number">1</span> | <span class="number">1</span>,mid + <span class="number">1</span>,r);</span><br><span class="line">	tree[p].num = tree[p&lt;&lt;<span class="number">1</span>].num + tree[p &lt;&lt; <span class="number">1</span> | <span class="number">1</span>].num;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">spread</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!tree[p].num) &#123;</span><br><span class="line">		tree[p&lt;&lt;<span class="number">1</span>].num = tree[p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>].num = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">change</span> <span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (tree[p].l &gt;= x &amp;&amp; tree[p].r &lt;= y) &#123;</span><br><span class="line">		tree[p].num = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> ; </span><br><span class="line">	&#125;</span><br><span class="line">	spread(p);</span><br><span class="line">	<span class="keyword">int</span> mid = (tree[p].l + tree[p].r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (mid &gt;= x) change(p&lt;&lt;<span class="number">1</span>,x,y);</span><br><span class="line">	<span class="keyword">if</span> (mid &lt; y) change(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,x,y);</span><br><span class="line">	tree[p].num = tree[p&lt;&lt;<span class="number">1</span>].num + tree[p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>].num;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = read(),m = read();</span><br><span class="line">	build (<span class="number">1</span>,<span class="number">1</span>,n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= m;++i) &#123;</span><br><span class="line">		<span class="keyword">int</span> x = read(),y = read();</span><br><span class="line">		change(<span class="number">1</span>,x,y);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,tree[<span class="number">1</span>].num);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -340,9 +334,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/数位DP/" rel="tag"># 数位DP</a>
-            
-              <a href="/tags/DP/" rel="tag"># DP</a>
+              <a href="/tags/线段树/" rel="tag"># 线段树</a>
             
           </div>
         
@@ -352,8 +344,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/26/树链剖分 学习笔记/" rel="next" title="树链剖分 学习笔记">
-                  <i class="fa fa-chevron-left"></i> 树链剖分 学习笔记
+                <a href="/2019/09/08/Luogu P3469 [POI2008]BLO-Blockade 解题报告/" rel="next" title="Luogu P3469 [POI2008]BLO-Blockade 解题报告">
+                  <i class="fa fa-chevron-left"></i> Luogu P3469 [POI2008]BLO-Blockade 解题报告
                 </a>
               
             </div>
@@ -362,8 +354,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/08/Luogu P3469 [POI2008]BLO-Blockade 解题报告/" rel="prev" title="Luogu P3469 [POI2008]BLO-Blockade 解题报告">
-                  Luogu P3469 [POI2008]BLO-Blockade 解题报告 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/22/Luogu1417/" rel="prev" title="Luogu 1417 烹调方案 解题报告">
+                  Luogu 1417 烹调方案 解题报告 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>

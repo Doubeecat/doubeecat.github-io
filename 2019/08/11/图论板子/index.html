@@ -59,7 +59,7 @@
 <meta name="keywords" content="图论,MST,并查集,拓扑排序,最短路,负环,树链剖分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图论板子">
-<meta property="og:url" content="http://yoursite.com/2019/08/11/图论板子/index.html">
+<meta property="og:url" content="https://www.zzlblog.ga/2019/08/11/图论板子/index.html">
 <meta property="og:site_name" content="Doubeecat&#39;s Blog">
 <meta property="og:description" content="板子大法好（逃）">
 <meta property="og:locale" content="zh-CN">
@@ -67,7 +67,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图论板子">
 <meta name="twitter:description" content="板子大法好（逃）">
-  <link rel="canonical" href="http://yoursite.com/2019/08/11/图论板子/">
+  <link rel="canonical" href="https://www.zzlblog.ga/2019/08/11/图论板子/">
 
 
 <script id="page-configurations">
@@ -247,7 +247,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/图论板子/">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2019/08/11/图论板子/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Doubeecat">
@@ -340,7 +340,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> cnt[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">toposort</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!cnt[i]) q.push(i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">		<span class="keyword">int</span> u = q.front();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = hd[u];i;i = nxt[i]) &#123;</span><br><span class="line">			<span class="keyword">int</span> v = to[i];</span><br><span class="line">			<span class="keyword">if</span> (--cnt[v] == <span class="number">0</span>) &#123;</span><br><span class="line">				q.push(v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="树链剖分"><a href="#树链剖分" class="headerlink" title="树链剖分"></a>树链剖分</h2><p><del>树链剖分这个OIer很强</del></p>
-<p>快速求解树上问题，具体应用请看[树链剖分 学习笔记](<a href="https://www.zzlblog.ga/2019/08/26/树链剖分" target="_blank" rel="noopener">https://www.zzlblog.ga/2019/08/26/树链剖分</a> 学习笔记/)</p>
+<p>快速求解树上问题，具体应用请看[树链剖分 学习笔记](<a href="https://www.zzlblog.ga/2019/08/26/树链剖分">https://www.zzlblog.ga/2019/08/26/树链剖分</a> 学习笔记/)</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> dfn[N],top[N],siz[N],son[N],dep[N],fat[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">	son[u] = <span class="number">0</span>;</span><br><span class="line">	siz[u] = <span class="number">1</span>;</span><br><span class="line">	dep[u] = dep[f] + <span class="number">1</span>;</span><br><span class="line">	fat[u] = f;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = hd[u];i;i = nxt[i]) &#123;</span><br><span class="line">		<span class="keyword">int</span> v = to[i],w = edg[i];</span><br><span class="line">		<span class="keyword">if</span> (v != f) &#123;</span><br><span class="line">			dfs(v,u);</span><br><span class="line">			siz[u] += siz[v];</span><br><span class="line">			<span class="keyword">if</span> (siz[v] &gt; siz[son[u]]) &#123;</span><br><span class="line">				son[u] = v;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">	dfn[u] = ++cnt;</span><br><span class="line">	<span class="keyword">if</span> (u == son[f]) &#123;</span><br><span class="line">		top[u] = top[f];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		top[u] = u;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (son[u]) &#123;</span><br><span class="line">		dfs2(son[u],u);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = hd[u];i;i = nxt[i]) &#123;</span><br><span class="line">		<span class="keyword">int</span> v = to[i],w = edg[i];</span><br><span class="line">		<span class="keyword">if</span> (v != f &amp;&amp; v != son[u]) &#123;</span><br><span class="line">			dfs2(v,u);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -445,7 +445,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -513,7 +513,11 @@
         
           
         
-        <span class="site-state-item-count">16</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
