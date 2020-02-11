@@ -319,18 +319,17 @@
 <p>题目中给了一个条件：在 $t$ 时刻完成第 $i$ 样食材则得到 $a_i-t*b_i$ 的美味指数，有了这个条件，显然我们要对每个物品选择的先后性进行讨论了。</p>
 <p>设 $a_1,b_1,c_1$ 为第一组物品，$a_2,b_2,c_2$ 为第二组物品， $t$为当前时间.</p>
 <p>将两个物品可获得的值表示出来为：</p>
-<p>$$<br>m_1 = a_1-(t \times c_1) \times b_1 + a_2 - (t+c_1+c_2) \times b_2<br>$$</p>
-<p>$$<br>m_2 = a_2-(t \times c_2) \times b_2 + a_1 - (t+c_1+c_2) \times b_1<br>$$</p>
-<p>设 $m_1 &gt; m_2$ 得</p>
-<p>$$<br>a_1-(t \times c_1) \times b_1 + a_2 - (t+c_1+c_2) \times b_2   &gt; m_2 = a_2-(t \times c_2) \times b_2 + a_1 - (t+c_1+c_2) \times b_1<br>$$</p>
-<p>拆项得</p>
-<p>$$<br>a_1-b_1t-b_1c_1+a_2-b_2t-b_2c_1-b_2c_2&gt;a_2-b_2t-b_2c_2+a_1-b_1t-b_1c_1-b_1c_2<br>$$</p>
-<p>化简得  </p>
-<p>$$<br>b_1c_2 &gt; b_2c_1<br>$$</p>
-<p>由此，我们就得到了我们 sort 函数中cmp的写法。注意开 long long 这题就完了。</p>
+<script type="math/tex; mode=display">
+m_1 = a_1-(t \times c_1) \times b_1 + a_2 - (t+c_1+c_2) \times b_2</script><script type="math/tex; mode=display">
+m_2 = a_2-(t \times c_2) \times b_2 + a_1 - (t+c_1+c_2) \times b_1</script><p>设 $m_1 &gt; m_2$ 得</p>
+<script type="math/tex; mode=display">
+a_1-(t \times c_1) \times b_1 + a_2 - (t+c_1+c_2) \times b_2   > m_2 = a_2-(t \times c_2) \times b_2 + a_1 - (t+c_1+c_2) \times b_1</script><p>拆项得</p>
+<script type="math/tex; mode=display">
+a_1-b_1t-b_1c_1+a_2-b_2t-b_2c_1-b_2c_2>a_2-b_2t-b_2c_2+a_1-b_1t-b_1c_1-b_1c_2</script><p>化简得  </p>
+<script type="math/tex; mode=display">
+b_1c_2 > b_2c_1</script><p>由此，我们就得到了我们 sort 函数中cmp的写法。注意开 long long 这题就完了。</p>
 <p>这题的关键就在此，我不知道是为什么，大部分题解中都没有给出自己的完整证明，这个证明也不难证，希望读者看完后可以自己证明一遍。</p>
 <h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">500010</span>&lt;&lt;<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">0</span>,f = <span class="number">1</span>;<span class="keyword">char</span> v = getchar();</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">isdigit</span>(v)) &#123;<span class="keyword">if</span> (v ==<span class="string">'-'</span>) f = <span class="number">-1</span>;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(v)) &#123;x = x * <span class="number">10</span> + v - <span class="number">48</span>;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> x * f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> f[N],n,m,ans;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> a,b,c;</span><br><span class="line">	<span class="keyword">friend</span> <span class="keyword">inline</span> <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node &amp;rhs,<span class="keyword">const</span> node &amp;rs) &#123;</span><br><span class="line">		<span class="keyword">return</span> rhs.b*rs.c &gt; rhs.c*rs.b;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;pre[N];</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	m = read(),n = read();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;++i)	pre[i].a = read();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;++i)	pre[i].b = read();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;++i)	pre[i].c = read();</span><br><span class="line">	sort(pre+<span class="number">1</span>,pre+<span class="number">1</span>+n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;++i) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = m;j &gt;= pre[i].c;--j) &#123;</span><br><span class="line">			f[j] = max(f[j],f[j-pre[i].c] + (pre[i].a - j * pre[i].b));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= m;++i) &#123;</span><br><span class="line">		ans = max(ans,f[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -427,7 +426,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -618,7 +617,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-battery-full"></i>
   </span>
