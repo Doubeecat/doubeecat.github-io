@@ -1,63 +1,1951 @@
-<!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.0"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Doubeecat&#039;s Blog</title><meta property="og:type" content="blog"><meta property="og:title" content="Doubeecat&#039;s Blog"><meta property="og:url" content="https://www.zzlblog.ga/"><meta property="og:site_name" content="Doubeecat&#039;s Blog"><meta property="og:locale" content="zh_CN"><meta property="article:author" content="Doubeecat"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://www.zzlblog.ga/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zzlblog.ga"},"headline":"Doubeecat's Blog","image":["https://www.zzlblog.ga/img/og_image.png"],"author":{"@type":"Person","name":"Doubeecat"},"description":null}</script><link rel="icon" href="/img/logo.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Doubeecat</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/aboutme">关于</a><a class="navbar-item" href="/todo">Todo</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/04/06/ACwing-%E6%8E%92%E5%88%97/"><img class="thumbnail" src="https://tva1.sinaimg.cn/large/0072Vf1pgy1foxk3gtfinj31hc0u0k6t.jpg" alt="ACwing 94 95 96 解题报告"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-04-06T05:59:29.000Z" title="2020-04-06T05:59:29.000Z">2020-04-06</time><span class="level-item"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></span><span class="level-item">5 分钟 读完 (大约 724 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/04/06/ACwing-%E6%8E%92%E5%88%97/">ACwing 94 95 96 解题报告</a></h1><div class="content"><h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.acwing.com/problem/content/94/">递归实现指数型枚举</a></p>
-<p><a href="https://www.acwing.com/problem/content/95/">递归实现组合型枚举</a></p>
-<p><a href="https://www.acwing.com/problem/content/96/">递归实现排列型枚举</a></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>指数型：在 $1-n$ 这 $n$ 个整数中随机选取任意多个，输出所有可能的次序。</p>
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 4.2.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Doubeecat&#39;s Blog">
+<meta property="og:url" content="https://www.zzlblog.ga/index.html">
+<meta property="og:site_name" content="Doubeecat&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Doubeecat">
+<meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://www.zzlblog.ga/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Doubeecat's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Doubeecat's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">“即便前路混沌，同她走过，才算人间。”</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-home&quot;&gt;&lt;&#x2F;i&gt; &lt;br&gt;首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/aboutme/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-user&quot;&gt;&lt;&#x2F;i&gt; &lt;br&gt;关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-question-circle&quot;&gt;&lt;&#x2F;i&gt; &lt;br&gt;标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-question-circle&quot;&gt;&lt;&#x2F;i&gt; &lt;br&gt;分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-question-circle&quot;&gt;&lt;&#x2F;i&gt; &lt;br&gt;归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-home">
+            
+  <section id="posts" class="posts-expand">
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/06/20/Luogu-P2132-%E5%B0%8FZ%E7%9A%84%E9%98%9F%E4%BC%8D%E6%8E%92%E5%88%97-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2020/06/20/Luogu-P2132-%E5%B0%8FZ%E7%9A%84%E9%98%9F%E4%BC%8D%E6%8E%92%E5%88%97-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" class="post-title-link" itemprop="url">Luogu P2132 小Z的队伍排列 解题报告</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-06-20 20:34:14 / 修改时间：20:36:24" itemprop="dateCreated datePublished" datetime="2020-06-20T20:34:14+08:00">2020-06-20</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.3k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="https://www.luogu.com.cn/problem/P2132" target="_blank" rel="noopener">P2132 小Z的队伍排列</a></p>
+<p>小Z想给班里的同学拍一张合影，为此需要先让大家排好队伍。他希望大家站成 $k$ 排，并规定了每排的人数，保证每一排的人数都不多于后面一排的人数。</p>
+<p>这时小Z发现队伍看起来还是乱糟糟的，原因是大家的身高互不相同。于是，他希望排头对齐，每位同学都比自己正后方的同学以及排头方向的同学矮。</p>
+<p>排完以后，善于思考的小Z还想知道一共有多少种排法。</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/06/20/Luogu-P2132-%E5%B0%8FZ%E7%9A%84%E9%98%9F%E4%BC%8D%E6%8E%92%E5%88%97-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/05/22/untitled-1590155596986/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2020/05/22/untitled-1590155596986/" class="post-title-link" itemprop="url">解题报告 AcWing 102. 最佳牛围栏</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-22 21:53:16" itemprop="dateCreated datePublished" datetime="2020-05-22T21:53:16+08:00">2020-05-22</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 20:27:52" itemprop="dateModified" datetime="2020-06-20T20:27:52+08:00">2020-06-20</time>
+              </span>
+            
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.7k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>给你一个长度为 $n$ 的数列，求出这个数列的平均数最大且长度不小于$L$的连续子段。 </p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/05/22/untitled-1590155596986/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/05/14/LuoguP4552/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2020/05/14/LuoguP4552/" class="post-title-link" itemprop="url">Luogu P4552 [Poetize6] IncDec Sequence 解题报告</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-14 21:36:15" itemprop="dateCreated datePublished" datetime="2020-05-14T21:36:15+08:00">2020-05-14</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 20:38:58" itemprop="dateModified" datetime="2020-06-20T20:38:58+08:00">2020-06-20</time>
+              </span>
+            
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.4k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="https://www.luogu.com.cn/problem/P4552" target="_blank" rel="noopener">P2132 IncDec Sequence</a></p>
+<p>给定一个长度为 $n$ 的数列 ${a_1,a_2,\cdots,a_n}$，每次可以选择一个区间$[l,r]$，使这个区间内的数都加 $1$ 或者都减 $1$。 </p>
+<p>请问至少需要多少次操作才能使数列中的所有数都一样，并求出在保证最少次数的前提下，最终得到的数列有多少种。</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/05/14/LuoguP4552/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/04/16/CF1336A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2020/04/16/CF1336A/" class="post-title-link" itemprop="url">CF1336A Linova and Kingdom 解题报告</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-16 08:23:21" itemprop="dateCreated datePublished" datetime="2020-04-16T08:23:21+08:00">2020-04-16</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 20:41:24" itemprop="dateModified" datetime="2020-06-20T20:41:24+08:00">2020-06-20</time>
+              </span>
+            
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.8k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="https://codeforces.ml/contest/1337/problem/C" target="_blank" rel="noopener">CF1336A/CF1337C</a></p>
+<p>有一个有 $n$ 个点的树，以 1 为根，你可以选择 $k$ 个节点，使得这 $k$ 个节点到 1 节点的最短路径中经过的非选择的点最多。</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/04/16/CF1336A/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/04/07/hardsolvedswitch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2020/04/07/hardsolvedswitch/" class="post-title-link" itemprop="url">ACWing 95 费解的开关 解题报告</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-07 22:07:26" itemprop="dateCreated datePublished" datetime="2020-04-07T22:07:26+08:00">2020-04-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 20:24:24" itemprop="dateModified" datetime="2020-06-20T20:24:24+08:00">2020-06-20</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">解题报告</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="https://www.acwing.com/problem/content/97/" target="_blank" rel="noopener">费解的开关</a></p>
+<p>给你一个 $5\times 5$ 的方格，每次操作可以改变上下左右中五个格子，给定始状态，判断是否可能在6步以内使所有的灯都变亮。</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/04/07/hardsolvedswitch/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/04/06/ACwing-%E6%8E%92%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2020/04/06/ACwing-%E6%8E%92%E5%88%97/" class="post-title-link" itemprop="url">ACwing 92 93 94 解题报告</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-06 13:59:29" itemprop="dateCreated datePublished" datetime="2020-04-06T13:59:29+08:00">2020-04-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 20:35:53" itemprop="dateModified" datetime="2020-06-20T20:35:53+08:00">2020-06-20</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">解题报告</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.8k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="https://www.acwing.com/problem/content/94/" target="_blank" rel="noopener">递归实现指数型枚举</a></p>
+<p><a href="https://www.acwing.com/problem/content/95/" target="_blank" rel="noopener">递归实现组合型枚举</a></p>
+<p><a href="https://www.acwing.com/problem/content/96/" target="_blank" rel="noopener">递归实现排列型枚举</a></p>
+<p>指数型：在 $1-n$ 这 $n$ 个整数中随机选取任意多个，输出所有可能的次序。</p>
 <p>组合型：从 $1- n$ 这 $n$ 个整数中随机选出 $m$ 个，输出所有可能的选择方案。</p>
-<p>排列型：把 $1-n$ 这 $n$ 个整数排成一行后随机打乱顺序，输出所有可能的次序。<br></div><a class="article-more button is-small size-small" href="/2020/04/06/ACwing-%E6%8E%92%E5%88%97/#more">阅读更多</a></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/02/11/LuoguP1032/"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu P1032 字串变换 解题报告"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-02-11T12:02:50.000Z" title="2020-02-11T12:02:50.000Z">2020-02-11</time><span class="level-item"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></span><span class="level-item">7 分钟 读完 (大约 1099 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/02/11/LuoguP1032/">Luogu P1032 字串变换 解题报告</a></h1><div class="content"><h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.com.cn/problem/P1032">【NOIP2002】字串变换</a></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>给你两个字符串 $A,B$ ，并给你 $n$ 个规则$(n\leq 6)$ ，求从 $A$ 到 $B$ 最小的变换步数（若$10$步内无法变换则无解，字符串长度不能超过$20$）。<br></div><a class="article-more button is-small size-small" href="/2020/02/11/LuoguP1032/#more">阅读更多</a></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2019/10/11/sol-P2169/"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu P2169 正则表达式 解题报告"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-10-11T15:16:14.000Z" title="2019-10-11T15:16:14.000Z">2019-10-11</time><span class="level-item"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></span><span class="level-item">5 分钟 读完 (大约 693 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/10/11/sol-P2169/">Luogu P2169 正则表达式 解题报告</a></h1><div class="content"><h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.org/problem/P2169">P2169 正则表达式</a></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>在Internet网络中的每台电脑并不是直接一对一连通的，而是某些电脑之间存在单向的网络连接，也就是说存在A到B的连接不一定存在B到A的连接，并且有些连接传输速度很快，有些则很慢，所以不同连接传输所花的时间是有大有小的。另外，如果存在A到B的连接的同时也存在B到A的连接的话，那么A和B实际上处于同一局域网内，可以通过本地传输，这样花费的传输时间为0。</p>
+<p>排列型：把 $1-n$ 这 $n$ 个整数排成一行后随机打乱顺序，输出所有可能的次序。</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/04/06/ACwing-%E6%8E%92%E5%88%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/02/11/LuoguP1032/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2020/02/11/LuoguP1032/" class="post-title-link" itemprop="url">Luogu P1032 字串变换 解题报告</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-11 20:02:50" itemprop="dateCreated datePublished" datetime="2020-02-11T20:02:50+08:00">2020-02-11</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 20:31:05" itemprop="dateModified" datetime="2020-06-20T20:31:05+08:00">2020-06-20</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">解题报告</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>3.1k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="https://www.luogu.com.cn/problem/P1032" target="_blank" rel="noopener">【NOIP2002】字串变换</a></p>
+<p>给你两个字符串 $A,B$ ，并给你 $n$ 个规则$(n\leq 6)$ ，求从 $A$ 到 $B$ 最小的变换步数（若$10$步内无法变换则无解，字符串长度不能超过$20$）。</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/02/11/LuoguP1032/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2019/10/11/sol-P2169/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/10/11/sol-P2169/" class="post-title-link" itemprop="url">Luogu P2169 正则表达式 解题报告</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-11 23:16:14" itemprop="dateCreated datePublished" datetime="2019-10-11T23:16:14+08:00">2019-10-11</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 20:28:03" itemprop="dateModified" datetime="2020-06-20T20:28:03+08:00">2020-06-20</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">解题报告</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.2k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="https://www.luogu.org/problem/P2169" target="_blank" rel="noopener">P2169 正则表达式</a><br>在Internet网络中的每台电脑并不是直接一对一连通的，而是某些电脑之间存在单向的网络连接，也就是说存在A到B的连接不一定存在B到A的连接，并且有些连接传输速度很快，有些则很慢，所以不同连接传输所花的时间是有大有小的。另外，如果存在A到B的连接的同时也存在B到A的连接的话，那么A和B实际上处于同一局域网内，可以通过本地传输，这样花费的传输时间为0。</p>
 <p>现在小Z告诉你整个网络的构成情况，他希望知道从他的电脑（编号为1），到小X的电脑（编号为n）所需要的最短传输时间。</p>
-<p>对于100%的数据，$1\leq n\leq200000, 1\leq m\leq 1000000$<br></div><a class="article-more button is-small size-small" href="/2019/10/11/sol-P2169/#more">阅读更多</a></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2019/10/11/Hxyburncp/"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu P2194 HXY烧情侣 解题报告"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-10-11T14:55:45.000Z" title="2019-10-11T14:55:45.000Z">2019-10-11</time><span class="level-item"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></span><span class="level-item">6 分钟 读完 (大约 901 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/10/11/Hxyburncp/">Luogu P2194 HXY烧情侣 解题报告</a></h1><div class="content"><h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.org/problem/P2194">P2194 HXY烧情侣</a></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>众所周知，HXY已经加入了FFF团。现在她要开始喜（sang）闻（xin）乐（bing）见（kuang）地烧情侣了。这里有n座电影院，n对情侣分别在每座电影院里，然后电影院里都有汽油，但是要使用它需要一定的费用。m条单向通道连接相邻的两对情侣所在电影院。然后HXY有个绝技，如果她能从一个点开始烧，最后回到这个点，那么烧这条回路上的情侣的费用只需要该点的汽油费即可。并且每对情侣只需烧一遍，电影院可以重复去。然后她想花尽可能少的费用烧掉所有的情侣。问最少需要多少费用，并且当费用最少时的方案数是多少？由于方案数可能过大，所以请输出方案数对1e9+7取模的结果。</p>
-<p>（注：这里HXY每次可以从任何一个点开始走回路。就是说一个回路走完了，下一个开始位置可以任选。所以说不存在烧不了所有情侣的情况，即使图不连通，HXY自行选择顶点进行烧情侣行动。且走过的道路可以重复走。）<br></div><a class="article-more button is-small size-small" href="/2019/10/11/Hxyburncp/#more">阅读更多</a></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2019/09/22/Luogu1417/"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu 1417 烹调方案 解题报告"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-09-22T03:13:57.000Z" title="2019-09-22T03:13:57.000Z">2019-09-22</time><span class="level-item"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></span><span class="level-item">4 分钟 读完 (大约 598 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/09/22/Luogu1417/">Luogu 1417 烹调方案 解题报告</a></h1><div class="content"><h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.org/problem/P1417">烹调方案</a></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>一共有$n$件食材，每件食材有三个属性， $a_i$ ， $b_i$ 和 $c_i$ ，如果在 $t$ 时刻完成第 $i$ 样食材则得到 $a_i-t*b_i$ 的美味指数，用第 $i$ 件食材做饭要花去 $c_i$ 的时间。</p>
-<p>在 $T$ 时间内设计烹调方案使得美味指数最大<br></div><a class="article-more button is-small size-small" href="/2019/09/22/Luogu1417/#more">阅读更多</a></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2019/09/22/ColortheAxis/"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu1840 Color the Axis_NOI导刊2011提高（05） 解题报告"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-09-22T03:12:14.000Z" title="2019-09-22T03:12:14.000Z">2019-09-22</time><span class="level-item"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></span><span class="level-item">3 分钟 读完 (大约 432 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/09/22/ColortheAxis/">Luogu1840 Color the Axis_NOI导刊2011提高（05） 解题报告</a></h1><div class="content"><h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.org/problem/P1840">Color the Axis_NOI导刊2011提高（05）</a></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>在一条数轴上有$N$个点，分别是$1 \rightarrow N$。一开始所有的点都被染成黑色。接着我们进行$M$次操作，第$i$次操作将$[L_i,R_i]$这些点染成白色。请输出每个操作执行后剩余黑色点的个数。<br></div><a class="article-more button is-small size-small" href="/2019/09/22/ColortheAxis/#more">阅读更多</a></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2019/09/08/Luogu%20P3469%20%5BPOI2008%5DBLO-Blockade%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu P3469 [POI2008]BLO-Blockade 解题报告"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-09-07T16:17:33.000Z" title="2019-09-07T16:17:33.000Z">2019-09-08</time><span class="level-item"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></span><span class="level-item">4 分钟 读完 (大约 563 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/09/08/Luogu%20P3469%20%5BPOI2008%5DBLO-Blockade%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">Luogu P3469 [POI2008]BLO-Blockade 解题报告</a></h1><div class="content"><h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.org/problem/P3469">[POI2008]BLO-Blockade</a></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>有 $n$ 个节点的无向图，定义封锁一个点为切断这个点的所有连边。求每个节点被封锁后图内的不连通有序点对个数。<br></div><a class="article-more button is-small size-small" href="/2019/09/08/Luogu%20P3469%20%5BPOI2008%5DBLO-Blockade%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/#more">阅读更多</a></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2019/09/07/Luogu%20P4999%20%E7%83%A6%E4%BA%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BD%9C%E4%B8%9A%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu P4999 烦人的数学作业 解题报告"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-09-07T15:48:56.000Z" title="2019-09-07T15:48:56.000Z">2019-09-07</time><span class="level-item"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></span><span class="level-item">2 分钟 读完 (大约 349 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/09/07/Luogu%20P4999%20%E7%83%A6%E4%BA%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BD%9C%E4%B8%9A%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">Luogu P4999 烦人的数学作业 解题报告</a></h1><div class="content"><h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.org/problem/P4999">P4999 烦人的数学作业</a></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>给出一个区间$L - R$，求$L$到$R$区间内<strong>每个数的数字和</strong>，如123这个数的数字和为1+2+3=6</p>
-<p>有T组数据，结果$\mod 10^9+7$</p>
-<p>$（1 \leq L \leq R \leq 10^18）$<br></div><a class="article-more button is-small size-small" href="/2019/09/07/Luogu%20P4999%20%E7%83%A6%E4%BA%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BD%9C%E4%B8%9A%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/#more">阅读更多</a></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2019/08/26/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="树链剖分 学习笔记"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-08-25T16:04:50.000Z" title="2019-08-25T16:04:50.000Z">2019-08-26</time><span class="level-item"><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span><span class="level-item">13 分钟 读完 (大约 1877 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/08/26/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">树链剖分 学习笔记</a></h1><div class="content"><p><del>树链剖分是个很强的 OIer</del></p>
-<p>树链剖分是用来解决一系列树上问题的利器。<br></div><a class="article-more button is-small size-small" href="/2019/08/26/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">阅读更多</a></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2019/08/22/CodeForcesRound-1206%E9%A2%98%E8%A7%A3/"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="CodeForcesRound#1206题解"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-08-22T13:32:10.000Z" title="2019-08-22T13:32:10.000Z">2019-08-22</time><span class="level-item"><a class="link-muted" href="/categories/Codeforces%E8%B5%9B%E5%90%8E%E9%A2%98%E8%A7%A3/">Codeforces赛后题解</a></span><span class="level-item">9 分钟 读完 (大约 1339 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2019/08/22/CodeForcesRound-1206%E9%A2%98%E8%A7%A3/">CodeForcesRound#1206题解</a></h1><div class="content"><h2 id="A-Choose-Two-Numbers"><a href="#A-Choose-Two-Numbers" class="headerlink" title="A. Choose Two Numbers"></a>A. <a href="https://codeforces.com/contest/1206/problem/A">Choose Two Numbers</a></h2><h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给你两个集合 $A,B$, 要求你分别从$A,B$中取出一个数，使得两数之和不在$A$中也不在$B$中</p>
-<p>$n ,m\leq 100$<br></div><a class="article-more button is-small size-small" href="/2019/08/22/CodeForcesRound-1206%E9%A2%98%E8%A7%A3/#more">阅读更多</a></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">上一页</a></div><div class="pagination-next"><a href="/page/2/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="/img/logo.jpg" alt="Doubeecat"></figure><p class="title is-size-4 is-block line-height-inherit">Doubeecat</p><p class="is-size-6 is-block">曾经发生过的事情不可能忘记，只不过是想不起而已。</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Cruel city</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">13</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">23</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/doubeecat" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/doubeecat"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1359446223&amp;site=qq&amp;menu=yes"><i class="fab fa-qq"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Luogu" href="https://www.luogu.com.cn/user/105230"><i class="fab fa-code"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://oierwanhong.cc" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">万弘</span></span><span class="level-right"><span class="level-item tag">oierwanhong.cc</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://blog.csdn.net/weixin_42750325" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Young_Zn_Cu</span></span><span class="level-right"><span class="level-item tag">blog.csdn.net</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Codeforces%E8%B5%9B%E5%90%8E%E9%A2%98%E8%A7%A3/"><span class="level-start"><span class="level-item">Codeforces赛后题解</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">学习笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"><span class="level-start"><span class="level-item">解题报告</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><a class="media-left" href="/2020/04/06/ACwing-%E6%8E%92%E5%88%97/"><p class="image is-64x64"><img class="thumbnail" src="https://tva1.sinaimg.cn/large/0072Vf1pgy1foxk3gtfinj31hc0u0k6t.jpg" alt="ACwing 94 95 96 解题报告"></p></a><div class="media-content size-small"><p><time dateTime="2020-04-06T05:59:29.000Z">2020-04-06</time></p><p class="title is-6"><a class="link-muted" href="/2020/04/06/ACwing-%E6%8E%92%E5%88%97/">ACwing 94 95 96 解题报告</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></p></div></article><article class="media"><a class="media-left" href="/2020/02/11/LuoguP1032/"><p class="image is-64x64"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu P1032 字串变换 解题报告"></p></a><div class="media-content size-small"><p><time dateTime="2020-02-11T12:02:50.000Z">2020-02-11</time></p><p class="title is-6"><a class="link-muted" href="/2020/02/11/LuoguP1032/">Luogu P1032 字串变换 解题报告</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></p></div></article><article class="media"><a class="media-left" href="/2019/10/11/sol-P2169/"><p class="image is-64x64"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu P2169 正则表达式 解题报告"></p></a><div class="media-content size-small"><p><time dateTime="2019-10-11T15:16:14.000Z">2019-10-11</time></p><p class="title is-6"><a class="link-muted" href="/2019/10/11/sol-P2169/">Luogu P2169 正则表达式 解题报告</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></p></div></article><article class="media"><a class="media-left" href="/2019/10/11/Hxyburncp/"><p class="image is-64x64"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu P2194 HXY烧情侣 解题报告"></p></a><div class="media-content size-small"><p><time dateTime="2019-10-11T14:55:45.000Z">2019-10-11</time></p><p class="title is-6"><a class="link-muted" href="/2019/10/11/Hxyburncp/">Luogu P2194 HXY烧情侣 解题报告</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></p></div></article><article class="media"><a class="media-left" href="/2019/09/22/Luogu1417/"><p class="image is-64x64"><img class="thumbnail" src="https://api.ixiaowai.cn/api/api.php" alt="Luogu 1417 烹调方案 解题报告"></p></a><div class="media-content size-small"><p><time dateTime="2019-09-22T03:13:57.000Z">2019-09-22</time></p><p class="title is-6"><a class="link-muted" href="/2019/09/22/Luogu1417/">Luogu 1417 烹调方案 解题报告</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/02/"><span class="level-start"><span class="level-item">二月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/08/"><span class="level-start"><span class="level-item">八月 2019</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/BFS/"><span class="tag">BFS</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DP/"><span class="tag">DP</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MST/"><span class="tag">MST</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tarjan/"><span class="tag">Tarjan</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/codeforces/"><span class="tag">codeforces</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%89%B2%E7%82%B9/"><span class="tag">割点</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%BE%E8%AE%BA/"><span class="tag">图论</span><span class="tag is-grey-lightest">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="tag">字符串</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"><span class="tag">并查集</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%9D%E7%BB%B4/"><span class="tag">思维</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"><span class="tag">拓扑排序</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%90%9C%E7%B4%A2/"><span class="tag">搜索</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E4%BD%8DDP/"><span class="tag">数位DP</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E8%AE%BA/"><span class="tag">数论</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9A%B4%E5%8A%9B/"><span class="tag">暴力</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"><span class="tag">最短路</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A0%91/"><span class="tag">树</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"><span class="tag">树链剖分</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"><span class="tag">线段树</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BC%A9%E7%82%B9/"><span class="tag">缩点</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%83%8C%E5%8C%85/"><span class="tag">背包</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B4%9F%E7%8E%AF/"><span class="tag">负环</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%80%92%E5%BD%92/"><span class="tag">递归</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Doubeecat</a><p class="size-small"><span>&copy; 2020 Doubeecat</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
-            site: {
-                url: 'https://www.zzlblog.ga',
-                external_link: {"enable":true,"exclude":[]}
-            },
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><script>window.addEventListener("load", function () {
-            MathJax.Hub.Config({
-                'HTML-CSS': {
-                    matchFontHeight: false
-                },
-                SVG: {
-                    matchFontHeight: false
-                },
-                CommonHTML: {
-                    matchFontHeight: false
-                },
-                tex2jax: {
-                    inlineMath: [
-                        ['$','$'],
-                        ['\\(','\\)']
-                    ]
-                }
-            });
-        });</script><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
-        });</script></body></html>
+<p>对于100%的数据，$1\leq n\leq200000, 1\leq m\leq 1000000$</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/11/sol-P2169/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2019/10/11/Hxyburncp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/10/11/Hxyburncp/" class="post-title-link" itemprop="url">Luogu P2194 HXY烧情侣 解题报告</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-11 22:55:45" itemprop="dateCreated datePublished" datetime="2019-10-11T22:55:45+08:00">2019-10-11</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 20:30:21" itemprop="dateModified" datetime="2020-06-20T20:30:21+08:00">2020-06-20</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">解题报告</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目链接："><a href="#题目链接：" class="headerlink" title="题目链接："></a>题目链接：</h2><p><a href="https://www.luogu.org/problem/P2194" target="_blank" rel="noopener">P2194 HXY烧情侣</a></p>
+<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><blockquote>
+<p>众所周知，HXY已经加入了FFF团。现在她要开始喜（sang）闻（xin）乐（bing）见（kuang）地烧情侣了。这里有$n$座电影院，$n$对情侣分别在每座电影院里，然后电影院里都有汽油，但是要使用它需要一定的费用。$m$条单向通道连接相邻的两对情侣所在电影院。然后HXY有个绝技，如果她能从一个点开始烧，最后回到这个点，那么烧这条回路上的情侣的费用只需要该点的汽油费即可。并且每对情侣只需烧一遍，电影院可以重复去。然后她想花尽可能少的费用烧掉所有的情侣。问最少需要多少费用，并且当费用最少时的方案数是多少？由于方案数可能过大，所以请输出方案数对$1e9+7$取模的结果。</p>
+<p>（注：这里HXY每次可以从任何一个点开始走回路。就是说一个回路走完了，下一个开始位置可以任选。所以说不存在烧不了所有情侣的情况，即使图不连通，HXY自行选择顶点进行烧情侣行动。且走过的道路可以重复走。）<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/11/Hxyburncp/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2019/09/22/Luogu1417/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/22/Luogu1417/" class="post-title-link" itemprop="url">Luogu 1417 烹调方案 解题报告</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-22 11:13:57" itemprop="dateCreated datePublished" datetime="2019-09-22T11:13:57+08:00">2019-09-22</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 20:31:00" itemprop="dateModified" datetime="2020-06-20T20:31:00+08:00">2020-06-20</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">解题报告</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.7k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="https://www.luogu.org/problem/P1417" target="_blank" rel="noopener">烹调方案</a></p>
+<p>一共有$n$件食材，每件食材有三个属性， $a_i$ ， $b_i$ 和 $c_i$ ，如果在 $t$ 时刻完成第 $i$ 样食材则得到 $a_i-t*b_i$ 的美味指数，用第 $i$ 件食材做饭要花去 $c_i$ 的时间。</p>
+<p>在 $T$ 时间内设计烹调方案使得美味指数最大</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/22/Luogu1417/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot; aria-label&#x3D;&quot;下一页&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="Doubeecat">
+  <p class="site-author-name" itemprop="name">Doubeecat</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/doubeecat" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;doubeecat" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-github&quot;&gt;&lt;&#x2F;i&gt;GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.luogu.org/space/show?uid=105230" title="Luogu &amp;rarr; https:&#x2F;&#x2F;www.luogu.org&#x2F;space&#x2F;show?uid&#x3D;105230" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-code&quot;&gt;&lt;&#x2F;i&gt;Luogu</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.codeforces.com/profile/doubeecat" title="Codeforces &amp;rarr; https:&#x2F;&#x2F;www.codeforces.com&#x2F;profile&#x2F;doubeecat" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-code&quot;&gt;&lt;&#x2F;i&gt;Codeforces</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:doubeecat@qq.com" title="E-Mail &amp;rarr; mailto:doubeecat@qq.com" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-envelope&quot;&gt;&lt;&#x2F;i&gt;E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/doubeecat" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;doubeecat" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-weibo&quot;&gt;&lt;&#x2F;i&gt;Weibo</a>
+      </span>
+    
+  </div>
+
+
+
+            <!-- none-select-br -->
+
+<p></p>
+
+<!-- hitokoto -->
+
+<div class="hitokoto-title">
+	<i class="fa fa-paragraph"></i>
+	<b>一言</b>
+</div>
+
+<div id="hitokoto">:D 获取中...</div>
+<i id="hitofrom">:D 获取中...</i>
+
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + data.hitokoto;
+      var hitofrom = document.getElementById('hitofrom');
+      hitofrom.innerText = "——" + data.from + '\xa0'; 
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+          
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-battery-full"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Doubeecat</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">43k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">39 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+<script type="text/javascript">
+  function hitokotoLike(x, y) {
+		$.ajax({
+		    url: "https://hitokoto.cn/Like",
+		    type: "GET",
+		    data: "ID=" + x,
+		    dataType: "jsonp",
+		    success: function(data) {
+		        alert(data.message);
+		        $(y).css('color', 'red');
+		    },
+		    error: function() {
+		        console.log('Hitokoto Like Request Error.');
+		        $(y).css('color', 'red');
+		    }
+		});
+	}
+	$.get('https://v1.hitokoto.cn/?c=a', function(data) {
+		$('#hitokoto-content').css('display', '').text(data.hitokoto);
+		$('#hitokoto-from').css('display', '').text('——' + data.from);
+		$('#hitokoto-from').attr('title', '上传者: ' + data.creator);
+		$('#hitokoto-link').attr('href', 'https://hitokoto.cn/?id=' + data.id);
+		document.getElementById('hitokoto-like').onclick = function() { hitokotoLike(data.id, '#hitokoto-like'); }
+	});
+</script>
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+</body>
+</html>

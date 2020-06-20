@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 4.2.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="P2132 小Z的队伍排列 小Z想给班里的同学拍一张合影，为此需要先让大家排好队伍。他希望大家站成 $k$ 排，并规定了每排的人数，保证每一排的人数都不多于后面一排的人数。 这时小Z发现队伍看起来还是乱糟糟的，原因是大家的身高互不相同。于是，他希望排头对齐，每位同学都比自己正后方的同学以及排头方向的同学矮。 排完以后，善于思考的小Z还想知道一共有多少种排法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Luogu P2132 小Z的队伍排列 解题报告">
+<meta property="og:url" content="https://www.zzlblog.ga/2020/06/20/Luogu-P2132-%E5%B0%8FZ%E7%9A%84%E9%98%9F%E4%BC%8D%E6%8E%92%E5%88%97-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="Doubeecat&#39;s Blog">
+<meta property="og:description" content="P2132 小Z的队伍排列 小Z想给班里的同学拍一张合影，为此需要先让大家排好队伍。他希望大家站成 $k$ 排，并规定了每排的人数，保证每一排的人数都不多于后面一排的人数。 这时小Z发现队伍看起来还是乱糟糟的，原因是大家的身高互不相同。于是，他希望排头对齐，每位同学都比自己正后方的同学以及排头方向的同学矮。 排完以后，善于思考的小Z还想知道一共有多少种排法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-20T12:34:14.000Z">
+<meta property="article:modified_time" content="2020-06-20T12:36:24.278Z">
+<meta property="article:author" content="Doubeecat">
+<meta property="article:tag" content="DP">
+<meta property="article:tag" content="线性DP">
+<meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://www.zzlblog.ga/2020/06/20/Luogu-P2132-%E5%B0%8FZ%E7%9A%84%E9%98%9F%E4%BC%8D%E6%8E%92%E5%88%97-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Luogu P2132 小Z的队伍排列 解题报告 | Doubeecat's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Doubeecat's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">“即便前路混沌，同她走过，才算人间。”</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-home&quot;&gt;&lt;&#x2F;i&gt; &lt;br&gt;首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/aboutme/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-user&quot;&gt;&lt;&#x2F;i&gt; &lt;br&gt;关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-question-circle&quot;&gt;&lt;&#x2F;i&gt; &lt;br&gt;标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-question-circle&quot;&gt;&lt;&#x2F;i&gt; &lt;br&gt;分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-question-circle&quot;&gt;&lt;&#x2F;i&gt; &lt;br&gt;归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/06/20/Luogu-P2132-%E5%B0%8FZ%E7%9A%84%E9%98%9F%E4%BC%8D%E6%8E%92%E5%88%97-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Doubeecat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Doubeecat's Blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">Luogu P2132 小Z的队伍排列 解题报告
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-06-20 20:34:14 / 修改时间：20:36:24" itemprop="dateCreated datePublished" datetime="2020-06-20T20:34:14+08:00">2020-06-20</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.3k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p><a href="https://www.luogu.com.cn/problem/P2132" target="_blank" rel="noopener">P2132 小Z的队伍排列</a></p>
+<p>小Z想给班里的同学拍一张合影，为此需要先让大家排好队伍。他希望大家站成 $k$ 排，并规定了每排的人数，保证每一排的人数都不多于后面一排的人数。</p>
+<p>这时小Z发现队伍看起来还是乱糟糟的，原因是大家的身高互不相同。于是，他希望排头对齐，每位同学都比自己正后方的同学以及排头方向的同学矮。</p>
+<p>排完以后，善于思考的小Z还想知道一共有多少种排法。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>线性 DP。</p>
+<p>首先因为“保证每一排的人数都不多于后面一排的人数”且“每位同学都比自己正后方的同学以及排头方向的同学矮”，所以合法方案中每行每列的身高显然单调。</p>
+<p>所以我们可以从高到低考虑每个学生所站的位置，这样搞的话，我们只要用一个$(a_1,a_2,a_3…a_n)$ 就能体现出已经处理的东西的轮廓。</p>
+<p>而每次考虑一个学生的时候，为了保证单调性，我们只能将他放在满足人员未满并且 $a_i &lt; a_{i-1}$ 或 $i = 1$ 的行中。</p>
+<p>所以定义 $(a_1,a_2,a_3…a_n)$ 为阶段，这样就满足了动态规划问题的最优子结构性质，并且每安排一名新学生时候 $a_1,a_2,a_3…a_n$ 中总有一个会 $+1$，满足各个维度线性增长的原则，也就是线性 DP 了。</p>
+<p>接下来，我们来设计状态转移方程，本题中的 $k \leq 5$，所以<del>无脑</del>设计 </p>
+<p>$f_{a_1,a_2,a_3,a_4,a_5}$表示每排从最左边起分别站了 $a_1,a_2,a_3,a_4,a_5$ 个人的方案数量</p>
+<p>$f_{0,0,0,0,0} = 1$ </p>
+<p>目标：$f_{k_1,k_2,k_3,k_4,k_5}$</p>
+<p>转移：</p>
+<p>当 $i = 1$ 时，如果 $a_1 &lt; k_1$，也就是人还没被放满时，$f_{a_1+1,a_2,a_3,a_4,a_5}+=f_{a_1,a_2,a_3,a_4,a_5}$</p>
+<p>当 $i &gt; 1$ 时，如果 $a_i &lt; k_i \&amp; a_i &lt; a_{i-1}$，$f_{a_1,a_2+1,a_3,a_4,a_5}+=f_{a_1,a_2,a_3,a_4,a_5}$</p>
+<p>（此处为当$i = 2$时，其他同理。）</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ri register int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">1</span> &lt;&lt; <span class="number">20</span>], *p1, *p2;</span><br><span class="line"><span class="comment">//#define getchar() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, 1 &lt;&lt; 20, stdin), p1 == p2)?EOF: *p1++)</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t)</span> </span>&#123;</span><br><span class="line">	ri v = getchar();T f = <span class="number">1</span>;t = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">isdigit</span>(v)) &#123;<span class="keyword">if</span> (v == <span class="string">'-'</span>)f = <span class="number">-1</span>;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(v)) &#123;t = t * <span class="number">10</span> + v - <span class="number">48</span>;v = getchar();&#125;</span><br><span class="line">	t *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T,<span class="keyword">typename</span>... Args&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t,Args&amp;... args)</span> </span>&#123;</span><br><span class="line">		read(t);read(args...);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">31</span>;</span><br><span class="line"></span><br><span class="line">ll f[N][N][N][N][N],n;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	read(n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;++i) read(a[i]);</span><br><span class="line">	f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> a1 = <span class="number">0</span>;a1 &lt;= a[<span class="number">1</span>];++a1) &#123;</span><br><span class="line">		 <span class="keyword">for</span> (<span class="keyword">int</span> a2 = <span class="number">0</span>;a2 &lt;= min(a1,a[<span class="number">2</span>]);++a2) &#123;</span><br><span class="line">		 	<span class="keyword">for</span> (<span class="keyword">int</span> a3 = <span class="number">0</span>;a3 &lt;= min(a2,a[<span class="number">3</span>]);++a3) &#123;</span><br><span class="line">		 		<span class="keyword">for</span> (<span class="keyword">int</span> a4 = <span class="number">0</span>;a4 &lt;= min(a3,a[<span class="number">4</span>]);++a4) &#123;</span><br><span class="line">		 			<span class="keyword">for</span> (<span class="keyword">int</span> a5 = <span class="number">0</span>;a5 &lt;= min(a4,a[<span class="number">5</span>]);++a5) &#123;</span><br><span class="line">		 				ll &amp;p = f[a1][a2][a3][a4][a5];<span class="comment">//指针储存，传统艺能</span></span><br><span class="line">		 				<span class="keyword">if</span> (a1 &amp;&amp; a1 &gt; a2) p += f[a1<span class="number">-1</span>][a2][a3][a4][a5];</span><br><span class="line">		 				<span class="keyword">if</span> (a2 &amp;&amp; a2 &gt; a3) p += f[a1][a2<span class="number">-1</span>][a3][a4][a5];</span><br><span class="line">		 				<span class="keyword">if</span> (a3 &amp;&amp; a3 &gt; a4) p += f[a1][a2][a3<span class="number">-1</span>][a4][a5];</span><br><span class="line">		 				<span class="keyword">if</span> (a4 &amp;&amp; a4 &gt; a5) p += f[a1][a2][a3][a4<span class="number">-1</span>][a5];</span><br><span class="line">		 				<span class="keyword">if</span> (a5) p += f[a1][a2][a3][a4][a5<span class="number">-1</span>];</span><br><span class="line">		 			&#125;</span><br><span class="line">		 		&#125;</span><br><span class="line">		 	&#125;</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, f[a[<span class="number">1</span>]][a[<span class="number">2</span>]][a[<span class="number">3</span>]][a[<span class="number">4</span>]][a[<span class="number">5</span>]]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/DP/" rel="tag"># DP</a>
+            
+              <a href="/tags/%E7%BA%BF%E6%80%A7DP/" rel="tag"># 线性DP</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/05/22/untitled-1590155596986/" rel="next" title="解题报告 AcWing 102. 最佳牛围栏">
+                  <i class="fa fa-chevron-left"></i> 解题报告 AcWing 102. 最佳牛围栏
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="Doubeecat">
+  <p class="site-author-name" itemprop="name">Doubeecat</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/doubeecat" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;doubeecat" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-github&quot;&gt;&lt;&#x2F;i&gt;GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.luogu.org/space/show?uid=105230" title="Luogu &amp;rarr; https:&#x2F;&#x2F;www.luogu.org&#x2F;space&#x2F;show?uid&#x3D;105230" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-code&quot;&gt;&lt;&#x2F;i&gt;Luogu</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.codeforces.com/profile/doubeecat" title="Codeforces &amp;rarr; https:&#x2F;&#x2F;www.codeforces.com&#x2F;profile&#x2F;doubeecat" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-code&quot;&gt;&lt;&#x2F;i&gt;Codeforces</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:doubeecat@qq.com" title="E-Mail &amp;rarr; mailto:doubeecat@qq.com" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-envelope&quot;&gt;&lt;&#x2F;i&gt;E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/doubeecat" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;doubeecat" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-weibo&quot;&gt;&lt;&#x2F;i&gt;Weibo</a>
+      </span>
+    
+  </div>
+
+
+
+            <!-- none-select-br -->
+
+<p></p>
+
+<!-- hitokoto -->
+
+<div class="hitokoto-title">
+	<i class="fa fa-paragraph"></i>
+	<b>一言</b>
+</div>
+
+<div id="hitokoto">:D 获取中...</div>
+<i id="hitofrom">:D 获取中...</i>
+
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + data.hitokoto;
+      var hitofrom = document.getElementById('hitofrom');
+      hitofrom.innerText = "——" + data.from + '\xa0'; 
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+          
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路："><span class="nav-number">1.</span> <span class="nav-text">解题思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码："><span class="nav-number">2.</span> <span class="nav-text">代码：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-battery-full"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Doubeecat</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">43k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">39 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+<script type="text/javascript">
+  function hitokotoLike(x, y) {
+		$.ajax({
+		    url: "https://hitokoto.cn/Like",
+		    type: "GET",
+		    data: "ID=" + x,
+		    dataType: "jsonp",
+		    success: function(data) {
+		        alert(data.message);
+		        $(y).css('color', 'red');
+		    },
+		    error: function() {
+		        console.log('Hitokoto Like Request Error.');
+		        $(y).css('color', 'red');
+		    }
+		});
+	}
+	$.get('https://v1.hitokoto.cn/?c=a', function(data) {
+		$('#hitokoto-content').css('display', '').text(data.hitokoto);
+		$('#hitokoto-from').css('display', '').text('——' + data.from);
+		$('#hitokoto-from').attr('title', '上传者: ' + data.creator);
+		$('#hitokoto-link').attr('href', 'https://hitokoto.cn/?id=' + data.id);
+		document.getElementById('hitokoto-like').onclick = function() { hitokotoLike(data.id, '#hitokoto-like'); }
+	});
+</script>
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>
