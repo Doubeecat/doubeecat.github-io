@@ -20,22 +20,21 @@
     var CONFIG = {"hostname":"www.zzlblog.ga","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right"},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Codeforces55D-Beautiful Numbers 定义“美丽的数字”为：被它自己的每一位数上的数整除的数 给定区间$[L,R]$，求有多少个美丽的数字">
+  <meta name="description" content="P3842 [TJOI2007]线段) 在一个 $n*n$ 的平面上，在每一行中有一条线段，第 $i$ 行的线段的左端点是$(i, l_i)$，右端点是$(i, r_i)$，其中 $i \leq l_i \leq r_i \leq n$。 你从$(1, 1)$点出发，要求沿途走过所有的线段，最终到达$(n, n)$点，且所走的路程长度要尽量短。 更具体一些说，你在任何时候只能选择向下走一步（行数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces55D-Beautiful Numbers  解题报告">
-<meta property="og:url" content="https://www.zzlblog.ga/2019/08/13/Codeforces55D-Beautiful%20Numbers%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:title" content="Luogu P3842 [TJOI2007]线段 解题报告">
+<meta property="og:url" content="https://www.zzlblog.ga/2020/06/27/LuoguP3842/index.html">
 <meta property="og:site_name" content="Doubeecat&#39;s Blog">
-<meta property="og:description" content="Codeforces55D-Beautiful Numbers 定义“美丽的数字”为：被它自己的每一位数上的数整除的数 给定区间$[L,R]$，求有多少个美丽的数字">
+<meta property="og:description" content="P3842 [TJOI2007]线段) 在一个 $n*n$ 的平面上，在每一行中有一条线段，第 $i$ 行的线段的左端点是$(i, l_i)$，右端点是$(i, r_i)$，其中 $i \leq l_i \leq r_i \leq n$。 你从$(1, 1)$点出发，要求沿途走过所有的线段，最终到达$(n, n)$点，且所走的路程长度要尽量短。 更具体一些说，你在任何时候只能选择向下走一步（行数">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-08-13T11:09:52.000Z">
-<meta property="article:modified_time" content="2020-06-20T12:30:42.962Z">
+<meta property="article:published_time" content="2020-06-27T13:50:34.000Z">
+<meta property="article:modified_time" content="2020-06-27T13:55:14.097Z">
 <meta property="article:author" content="Doubeecat">
-<meta property="article:tag" content="数位DP">
 <meta property="article:tag" content="DP">
-<meta property="article:tag" content="数论">
+<meta property="article:tag" content="线性DP">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.zzlblog.ga/2019/08/13/Codeforces55D-Beautiful%20Numbers%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">
+<link rel="canonical" href="https://www.zzlblog.ga/2020/06/27/LuoguP3842/">
 
 
 <script id="page-configurations">
@@ -48,7 +47,7 @@
   };
 </script>
 
-  <title>Codeforces55D-Beautiful Numbers  解题报告 | Doubeecat's Blog</title>
+  <title>Luogu P3842 [TJOI2007]线段 解题报告 | Doubeecat's Blog</title>
   
 
 
@@ -170,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2019/08/13/Codeforces55D-Beautiful%20Numbers%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/06/27/LuoguP3842/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/logo.jpg">
@@ -183,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Codeforces55D-Beautiful Numbers  解题报告
+          Luogu P3842 [TJOI2007]线段 解题报告
         </h1>
 
         <div class="post-meta">
@@ -192,16 +191,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-08-13 19:09:52" itemprop="dateCreated datePublished" datetime="2019-08-13T19:09:52+08:00">2019-08-13</time>
+              <time title="创建时间：2020-06-27 21:50:34 / 修改时间：21:55:14" itemprop="dateCreated datePublished" datetime="2020-06-27T21:50:34+08:00">2020-06-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-20 20:30:42" itemprop="dateModified" datetime="2020-06-20T20:30:42+08:00">2020-06-20</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -218,7 +211,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -238,22 +231,30 @@
 
       
         <blockquote>
-<p><a href="http://codeforces.com/problemset/problem/55/D" target="_blank" rel="noopener">Codeforces55D-Beautiful Numbers</a></p>
-<p>定义“美丽的数字”为：被它自己的每一位数上的数整除的数</p>
-<p>给定区间$[L,R]$，求有多少个美丽的数字</p>
+<p><a href="[&lt;https://www.luogu.com.cn/problem/P2132&gt;](https://www.luogu.com.cn/problem/P3842">P3842 [TJOI2007]线段</a>)</p>
+<p>在一个 $n*n$ 的平面上，在每一行中有一条线段，第 $i$ 行的线段的左端点是$(i, l_i)$，右端点是$(i, r_i)$，其中 $i \leq l_i \leq r_i \leq n$。</p>
+<p>你从$(1, 1)$点出发，要求沿途走过所有的线段，最终到达$(n, n)$点，且所走的路程长度要尽量短。</p>
+<p>更具体一些说，你在任何时候只能选择向下走一步（行数增加 1）、向左走一步（列数减少 1）或是向右走一步（列数增加 1）。当然，由于你不能向上行走，因此在从任何一行向下走到另一行的时候，你必须保证已经走完本行的那条线段。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>显然的数位DP，简单拉个板子就写完了.但是定义状态的时候发现会存不下，我们考虑压缩一下他们的状态。</p>
-<p>引入两条重要的性质：</p>
-<ol>
-<li>如果一个数能整除它的所有数位上的数，那么它一定能整除所有这些数位上的数的最小公倍数</li>
-<li>而$1$到$9$的最小公倍数是$2520$，所有数可能形成的数位上所有数的最小公倍数一定是$2520$的因数</li>
-</ol>
-<p>因为$lcm(1,2,3,4,5,6,7,8,9) = 2520$，所以直接定义$dp[i][j][k]$为前$i$位数$mod$$  2520 = j$，前$i$位数的$lcm$为$j$。</p>
-<p>然而，这样设计状态出来会发现总状态数达到了$20<em>2520</em>2520 = 127008000$，显然存不下，我们再次考虑进行优化。观察到第二维还是会有冗余，手打个表可以发现总共只有48种可能性，再次进行压缩。</p>
-<p>根据性质1，如果最后的数能整除$k$，那么它一定能整除它各位数字的最小公倍数。由于性质2，所有可能出现的$k$都是$2520$的因数，借助这一性质，将$j$取模$2520$，若所得的结果整除$k$，那么原来的数也一定整除$k$。所以转移方程就很自然的出来了：</p>
-<p>$f[i][j][k] = \sum f[i][lcm(k,x)][j*10+x \mod 2520|1 \leq x\leq Maxx]$</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILE A</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 2520 + 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 200</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> v = getchar();ll x = <span class="number">0</span>,f = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">isdigit</span>(v)) &#123;<span class="keyword">if</span> (v == <span class="string">'-'</span>)&#123;f = <span class="number">-1</span>;&#125;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(v)) &#123;x = x * <span class="number">10</span> + v - <span class="number">48</span>;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> x * f;</span><br><span class="line">&#125;</span><br><span class="line">ll dp[<span class="number">20</span>][<span class="number">50</span>][N],dig[N],ind[N],cnt,mod,num[N],l,r,c;<span class="function">ll <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">return</span> b?gcd(b,a%b):a;&#125;</span><br><span class="line"><span class="function">ll <span class="title">mylcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">return</span> a/gcd(a,b)*b;&#125;</span><br><span class="line"><span class="function">ll <span class="title">dfs</span><span class="params">(ll now,ll lcm,ll sum,<span class="keyword">int</span> limit)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!now) &#123;</span><br><span class="line">		<span class="keyword">return</span> sum % lcm == <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (!limit &amp;&amp; dp[now][num[lcm]][sum] != <span class="number">-1</span>) <span class="keyword">return</span> dp[now][num[lcm]][sum];</span><br><span class="line">	ll ans = <span class="number">0</span>,ret = (limit)?dig[now]:<span class="number">9</span>;</span><br><span class="line">	<span class="keyword">for</span> (ll i = <span class="number">0</span>;i &lt;= ret;++i) &#123;</span><br><span class="line">		<span class="keyword">int</span> lcm1 = i ? mylcm(lcm,i) : lcm;</span><br><span class="line">		<span class="keyword">int</span> sum1 = (sum * <span class="number">10</span> + i) % mod;</span><br><span class="line">		ans += dfs(now<span class="number">-1</span>,lcm1,sum1,limit&amp;&amp;i==ret);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span> (!limit) &#123;</span><br><span class="line">		dp[now][num[lcm]][sum] = ans;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">work</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (x) &#123;</span><br><span class="line">		dig[++len] = x % <span class="number">10</span>;x /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dfs(len,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(dp,<span class="number">-1</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">	<span class="keyword">int</span> T = read();</span><br><span class="line">	mod = <span class="number">2520</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= mod;++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (mod % i == <span class="number">0</span>) &#123;</span><br><span class="line">			num[i] = cnt++;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (T--) &#123;</span><br><span class="line">		ll l = read(),r = read();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,work(r) - work(l<span class="number">-1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>线性 DP.</p>
+<p>首先我们观察题目中的三种操作，可以概括成：</p>
+<ul>
+<li>在横坐标上 +1 -1</li>
+<li>在纵坐标上 +1</li>
+</ul>
+<p>初步定义 $f_{i,j}$ 代表在第 $i$ 行第 $j$ 列里的最短长度。</p>
+<p>然而我们很快可以发现，这里的 $n \leq 20000$ ，而且转移时并不是很好写，有许多冗余状态（横坐标在最长线段外的点我们显然不可能走到）</p>
+<p>我们再对这个过程进行深入分析，发现其实在走线段的过程中只有横坐标会变化，而且这个变化并不用 DP 维护，暴力加上即可。</p>
+<p>所以我们再定义 $f_{i,0/1}$ 代表在第 $i$ 行时，若为 0，则说明<strong>走完这条线段后</strong>在线段的左端点，若为 1，则说明<strong>走完这条线段后</strong>在线段的右端点。</p>
+<p>这样我们的转移也呼之欲出了，</p>
+<p>$f_{i,0}$ 可以从 $f_{i-1,0}$ 或 $f_{i-1,1}$ 转移来，转移方程为</p>
+<script type="math/tex; mode=display">f_{i,0} = \min(f_{i-1,0} + \operatorname{dis}(l_{i-1},r_i),f_{i-1,1} + \operatorname{dis}(r_{i-1},r_i)) + len + 1</script><p>上述方程表示由上一行的线段的左端点转移来时，先走到当前行的右端点再向下走，最后走一遍到当前线段的左端点。右端点同理。</p>
+<p>同理，</p>
+<p>$f_{i,1}$  可以从 $f_{i-1,0}$ 或 $f_{i-1,1}$ 转移来，转移方程为</p>
+<script type="math/tex; mode=display">f_{i,1} = \min(f_{i-1,0} + \operatorname{dis}(l_{i-1},l_i),f_{i-1,1} + \operatorname{dis}(r_{i-1},l_i)) + len + 1</script><p>上述方程表示由上一行的线段的左端点转移来时，先走到当前行的左端点再向下走，最后走一遍到当前线段的左端点。右端点同理。</p>
+<p>因为其满足各个维度线性增长，故其为线性 DP ，时间复杂度 $O(n)$</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ri register int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">1</span> &lt;&lt; <span class="number">20</span>], *p1, *p2;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getchar() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, 1 &lt;&lt; 20, stdin), p1 == p2)?EOF: *p1++)</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t)</span> </span>&#123;</span><br><span class="line">	ri v = getchar();T f = <span class="number">1</span>;t = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">isdigit</span>(v)) &#123;<span class="keyword">if</span> (v == <span class="string">'-'</span>)f = <span class="number">-1</span>;v = getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">isdigit</span>(v)) &#123;t = t * <span class="number">10</span> + v - <span class="number">48</span>;v = getchar();&#125;</span><br><span class="line">	t *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T,<span class="keyword">typename</span>... Args&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;t,Args&amp;... args)</span> </span>&#123;</span><br><span class="line">	read(t);read(args...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> T <span class="title">min</span><span class="params">(T x,T y)</span> </span>&#123;<span class="keyword">return</span> x&lt;y?x:y;&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> T <span class="title">max</span><span class="params">(T x,T y)</span> </span>&#123;<span class="keyword">return</span> x&gt;y?x:y;&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll inf = <span class="number">0x3f3f3f3f3f3f3f3f</span>LL;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">25100</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> f[N][<span class="number">2</span>],l[N],r[N],n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">dis</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;<span class="keyword">return</span> <span class="built_in">abs</span>(x-y);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	read(n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;=  n;++i) read(l[i],r[i]);</span><br><span class="line">	f[<span class="number">1</span>][<span class="number">1</span>] = dis(<span class="number">1</span>,r[<span class="number">1</span>]),f[<span class="number">1</span>][<span class="number">0</span>] = dis(<span class="number">1</span>,r[<span class="number">1</span>]) + dis(l[<span class="number">1</span>],r[<span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;++i) &#123;</span><br><span class="line">		<span class="keyword">int</span> len = dis(l[i],r[i]);</span><br><span class="line">		f[i][<span class="number">0</span>] = min(f[i<span class="number">-1</span>][<span class="number">0</span>]+dis(l[i<span class="number">-1</span>],r[i]),f[i<span class="number">-1</span>][<span class="number">1</span>]+dis(r[i<span class="number">-1</span>],r[i])) + len + <span class="number">1</span>;</span><br><span class="line">		f[i][<span class="number">1</span>] = min(f[i<span class="number">-1</span>][<span class="number">0</span>]+dis(l[i<span class="number">-1</span>],l[i]),f[i<span class="number">-1</span>][<span class="number">1</span>]+dis(r[i<span class="number">-1</span>],l[i])) + len + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ans = min(f[n][<span class="number">0</span>] + dis(l[n],n),f[n][<span class="number">1</span>] + dis(r[n],n));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -263,9 +264,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%95%B0%E4%BD%8DDP/" rel="tag"># 数位DP</a>
               <a href="/tags/DP/" rel="tag"># DP</a>
-              <a href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag"># 数论</a>
+              <a href="/tags/%E7%BA%BF%E6%80%A7DP/" rel="tag"># 线性DP</a>
           </div>
 
         
@@ -274,13 +274,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/08/11/%E5%9B%BE%E8%AE%BA%E6%9D%BF%E5%AD%90/" rel="prev" title="板子们">
-      <i class="fa fa-chevron-left"></i> 板子们
+    <a href="/2020/06/20/Luogu-P2132-%E5%B0%8FZ%E7%9A%84%E9%98%9F%E4%BC%8D%E6%8E%92%E5%88%97-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" rel="prev" title="Luogu P2132 小Z的队伍排列 解题报告">
+      <i class="fa fa-chevron-left"></i> Luogu P2132 小Z的队伍排列 解题报告
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/08/22/CodeForcesRound-1206%E9%A2%98%E8%A7%A3/" rel="next" title="CodeForcesRound#1206题解">
-      CodeForcesRound#1206题解 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -339,7 +336,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路："><span class="nav-number">1.</span> <span class="nav-text">解题思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码："><span class="nav-number">2.</span> <span class="nav-text">代码：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
