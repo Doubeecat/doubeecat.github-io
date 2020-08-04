@@ -31,12 +31,12 @@
 <meta property="article:modified_time" content="2020-06-20T12:33:02.241Z">
 <meta property="article:author" content="Doubeecat">
 <meta property="article:tag" content="图论">
-<meta property="article:tag" content="树链剖分">
 <meta property="article:tag" content="MST">
 <meta property="article:tag" content="并查集">
 <meta property="article:tag" content="拓扑排序">
 <meta property="article:tag" content="最短路">
 <meta property="article:tag" content="负环">
+<meta property="article:tag" content="树链剖分">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://www.zzlblog.ga/2019/08/11/%E5%9B%BE%E8%AE%BA%E6%9D%BF%E5%AD%90/">
@@ -216,7 +216,21 @@
                 </span>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/08/11/%E5%9B%BE%E8%AE%BA%E6%9D%BF%E5%AD%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/08/11/%E5%9B%BE%E8%AE%BA%E6%9D%BF%E5%AD%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -268,12 +282,12 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag"># 图论</a>
-              <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" rel="tag"># 树链剖分</a>
               <a href="/tags/MST/" rel="tag"># MST</a>
               <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag"># 并查集</a>
               <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" rel="tag"># 拓扑排序</a>
               <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag"># 最短路</a>
               <a href="/tags/%E8%B4%9F%E7%8E%AF/" rel="tag"># 负环</a>
+              <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" rel="tag"># 树链剖分</a>
           </div>
 
         
@@ -298,6 +312,7 @@
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -548,6 +563,35 @@
     
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '6CGcUDbuD17aESA6Abl5FcK8-gzGzoHsz',
+      appKey     : 'dopf8aMzWSSVJbvbge6BmWxi',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
