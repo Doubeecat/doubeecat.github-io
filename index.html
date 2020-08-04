@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/08/04/%E6%95%B0%E8%AE%BA%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/08/04/Mathgetstarted/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/logo.jpg">
@@ -176,7 +176,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/04/%E6%95%B0%E8%AE%BA%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">数论入门</a>
+            <a href="/2020/08/04/Mathgetstarted/" class="post-title-link" itemprop="url">数论入门</a>
         </h2>
 
         <div class="post-meta">
@@ -187,7 +187,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-04 15:02:49 / 修改时间：15:03:15" itemprop="dateCreated datePublished" datetime="2020-08-04T15:02:49+08:00">2020-08-04</time>
+              <time title="创建时间：2020-08-04 15:02:49 / 修改时间：15:10:29" itemprop="dateCreated datePublished" datetime="2020-08-04T15:02:49+08:00">2020-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
             </span>
 
           <br>
@@ -196,7 +205,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -215,301 +224,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>前言：本文主要是听了洛谷夏令营的网课后做的一些数论笔记，难度大致在提高左右，想获得最好的观看体验，建议您准备好纸笔。</p>
-<p>### 整除</p>
-<p>若 $a = bk$，其中 $a, b, k$ 都是整数，则 $b$ 整除 $a$，记做 $b|a$。</p>
-<p>也称 $b$ 是 $a$ 的约数（因数），$a$ 是 $b$ 的倍数</p>
-<p>#### 性质：</p>
-<p>- $1$ 整除任何数，任何数都整除 $0$</p>
-<p>- 若 $a|b, a|c$，则 $a|(b + c), a|(b − c)$ </p>
-<p>(证明：$b = b’a,c = c’a$ 然后就随便弄了)</p>
-<p>- 若 $a|b$，则对任意整数 $c$，$a|bc$</p>
-<p>- 传递性：若 $a|b, b|c$，则 $a|c$</p>
-<p><strong>*\</strong>***</p>
-<p>### 质数与合数</p>
-<p>若大于 $1$ 的正整数 $p$ 仅有两个因子 $1,p$，则称 $p$ 是一个质数（素数）。</p>
-<p>否则，若 $p &gt; 1$，则称 $p$ 是一个合数。</p>
-<p><strong><em>**</em></strong>1 不是质数也不是合数<strong>*</strong>***</p>
-<p>若 $n$ 是一个合数，则 $n$ 至少有 $1$ 个质因子。因此其中最小的质因子一定不大于 $\sqrt{n}$</p>
-<p>质数有无穷多个。不大于 $n$ 的质数约有 $\frac{n} {\ln n}$ 个。</p>
-<p>唯一分解定理：把正整数 n 写成质数的乘积</p>
-<p>（即 $n = p_1 ^ {c_1} p_2^{c_2}p_3^{c_3} \dots p_k ^ {c_k}$，其中 pi 为质数且单调不减），</p>
-<p>这样的表示是唯一的。</p>
-<p><strong>*\</strong>***</p>
-<p>### 质因数分解</p>
-<p>观察到 $n$ 最多只有 1 个大于 $\sqrt{n}$ 的质因子</p>
-<p>直接 $O(\sqrt{n})$ 枚举即可</p>
-<p>```cpp</p>
-<p>void factor(int x) {</p>
-<p>  int tot = 0;</p>
-<p>  <em>for</em> (int i = 2;i * i &lt;= x;++i) {</p>
-<p>​    <em>if</em> (x % i == 0) fac[++tot] = i;</p>
-<p>  }</p>
-<p>  <em>if</em> (x != 1) fac[++tot] = x;</p>
-<p>  <em>return</em> ;</p>
-<p>}</p>
-<p>```</p>
-<p><strong>*\</strong>***</p>
-<p>### 带余除法、同余</p>
-<p>对于$a,b (a,b \in \Z,b &gt; 0)$ ，存在唯一的 $q,r(q,r \in \Z)$ </p>
-<p>满足 $a = bq + r$，其中 $0 \leq r &lt; b$ </p>
-<p>我们把 $q$ 称为商，$r$ 称为余数</p>
-<p>余数可以用 $a \mod b(a \% b)$来表示。</p>
-<p>若两数 $a,b$ 除以 $c$ 的余数相等，则称 $a,b$ 模 $c$ 同余，记作 $a \equiv b (\mod c)$</p>
-<p>#### 性质</p>
-<p>$a \equiv b (\mod c)$ 与 $c | (a - b)$ 等价</p>
-<p>#### 推论</p>
-<p>若 $a \equiv b (\mod c),d | c$ 则 $a \equiv b (\mod d)$</p>
-<p><strong>*\</strong>***</p>
-<p>### 最大公约数(Greatest Common Divisor)</p>
-<p>设 $a, b$ 是不都为 0 的整数，$c$ 为满足 $c|a$ 且 $c|b$ 的最大整数，则称 $c$ 是 $a, b$ 的最大公约数</p>
-<p>记为 $\gcd(a, b)$ 或 $(a, b)$</p>
-<p>类似地可以定义多个数的最大公约数</p>
-<p>求 GCD 的一般公式：质因数分解</p>
-<script type="math/tex; mode=display">
-
-\*begin*{aligned}
-
-  *&*a = p_1^{c_1}p_2^{c_2}\dots p_k^{c_k}*\\*
-
-  *&*b = p_1^{d_1}p_2^{d_2}\dots p_k^{d_k}*\\*
-
-  *&*(a,b) = p_1^{\min{c_1,d_1}}p_2^{\min{c_2,d_2}} \dots p_k^{\min{c_k,d_k}}
-
-\*end*{aligned}</script><p>#### 性质：</p>
-<script type="math/tex; mode=display">
-
-\*begin*{aligned}
-
-  *&*(a, a) = (0, a) = a *\\*
-
-  *&*\text{if } a|b,\text{then } (a, b) = a *\\*
-
-  *&*(a, b) = (a, a + b) = (a, ka + b) *\\*
-
-  *&*(ka, kb) = k·(a, b) *\\* 
-
-  *&*(a, b, c) = ((a, b), c) 
-
-\*end*{aligned}</script><script type="math/tex; mode=display">
-</script><p>若 $(a, b) = 1$，则称 $a, b$ 互质（互素）</p>
-<p>互质的两个数往往有很好的性质</p>
-<p><strong>*\</strong>***</p>
-<p>### 欧几里得算法</p>
-<p>又称辗转相除法</p>
-<p>迭代求两数 gcd 的做法</p>
-<p>由 $(a, b) = (a, ka + b)$ 的性质：$(a, b) = (b, a \mod b)$</p>
-<p>时间复杂度 $O(\log \max{a,b})$</p>
-<p>如何证明？每次递归 $b$ 的范围缩小一半，也就是说要证明 $a \mod b \leq \frac{a}{2}$</p>
-<p>分类讨论一手：</p>
-<script type="math/tex; mode=display">
-
-\*begin*{aligned}
-
-  *&*1.b \leq \frac{a}{2}*\\*
-
-  *&*\Rightarrow a \mod b < b \leq \frac{a}{2}*\\*
-
-  *&*2.a > b > \frac{a}{2} *\\*
-
-  *&*\Rightarrow a \mod b = a - b \leq \frac{a}{2}
-
-\*end*{aligned}</script><p><strong>*\</strong>***</p>
-<p>### 裴蜀定理</p>
-<p>设 $(a, b) = d$，则对任意整数 $x, y$，有 $d|(ax + by)$ 成立</p>
-<p>特别地，一定存在 $x, y$ 满足 $ax + by = d$</p>
-<p>等价的表述：不定方程 $ax + by = c (a,b,c \in \Z)$有解的充要条件为 $(a, b)|c$</p>
-<p>推论：$a, b$ 互质等价于 $ax + by = 1$ 有解</p>
-<p>#### 证明</p>
-<p>显然有 $d | a,d | b$</p>
-<p>根据之前的引理有 $d | ax,d | by$</p>
-<p>故 $d | (ax+by)$</p>
-<p>对于第二个结论（以下转自<a href="https://oi-wiki.org/math/bezouts/" target="_blank" rel="noopener">OI Wiki</a>）</p>
-<p>若任何一个等于 $0$ , 则 $\gcd(a,b)=a$ . 这时定理显然成立。</p>
-<p>若 $a,b$ 不等于 $0$ .</p>
-<p>由于 $\gcd(a,b)=\gcd(a,-b)$ ,</p>
-<p>不妨设 $a,b$ 都大于 $0$ , $a\geq b,\gcd(a,b)=d$ .</p>
-<p>对 $ax+by=d$ , 两边同时除以 $d$ , 可得 $a_1x+b_1y=1$ , 其中 $(a_1,b_1)=1$ .</p>
-<p>转证 $a_1x+b_1y=1$ .</p>
-<p>我们先回顾一下辗转相除法是怎么做的，由 $\gcd(a, b) \rightarrow \gcd(b,a\mod b) \rightarrow …$ 我们把模出来的数据叫做 $r$ 于是，有</p>
-<script type="math/tex; mode=display">\gcd(a_1,b_1)=\gcd(b_1,r_1)=\gcd(r_1,r_2)=\cdots=(r_{n-1},r_n)=1</script><p>把辗转相除法中的运算展开，做成带余数的除法，得</p>
-<script type="math/tex; mode=display">
-
-\*begin*{aligned}
-
-  a_1 *&*= q_1b+r_1 *&*(0\leq r_1<b_1) *\\*
-
-  b_1 *&*= q_2r_1+r_2 *&*(0\leq r_2<r_1) *\\* 
-
-  r_1 *&*= q_3r_2+r_3 *&*(0\leq r_3<r_2) *\\* 
-
-  *&*\cdots *\\*
-
-  r_{n-3} *&*= q_{n-1}r_{n-2}+r_{n-1} *\\*
-
-  r_{n-2} *&*= q_nr_{n-1}+r_n *\\*
-
-  r_{n-1} *&*= q_{n+1}r_n
-
-\*end*{aligned}</script><p>不妨令辗转相除法在除到互质的时候退出则 $r_n=1$ 所以有（ $q$ 被换成了 $x$ ，为了符合最终形式）</p>
-<script type="math/tex; mode=display">r_{n-2}=x_nr_{n-1}+1</script><p>即</p>
-<script type="math/tex; mode=display">1=r_{n-2}-x_nr_{n-1}</script><p>由倒数第三个式子 $r_{n-1}=r_{n-3}-x_{n-1}r_{n-2}$ 代入上式，得</p>
-<script type="math/tex; mode=display">1=(1+x_nx_{n-1})r_{n-2}-x_nr_{n-3}</script><p>然后用同样的办法用它上面的等式逐个地消去 $r_{n-2},\cdots,r_1$ ,</p>
-<p>可证得 $1=a_1x+b_1y$ . 这样等于是一般式中 $d=1$ 的情况。</p>
-<p><strong>*\</strong>***</p>
-<p>### Exgcd</p>
-<p>由裴蜀定理可得，方程 $ax + by = \gcd(a,b)$ 必有一组解。</p>
-<p>所以我们考虑如何求出这样的方程的一组解。</p>
-<p>#### 证明：</p>
-<p>设 </p>
-<script type="math/tex; mode=display">
-
-\*begin*{aligned}
-
-  *&*ax_1 + by_1 = \gcd(a,b) *\\*
-
-  *&*bx_2 + (a \mod b)y_2 = \gcd(b,a \mod b) 
-
-\*end*{aligned}</script><p>则</p>
-<script type="math/tex; mode=display">
-
-\*begin*{aligned}
-
-  *&*\because \gcd(a,b) = \gcd(b,a \mod b)*\\*
-
-  *&*\therefore ax_1 + by_1 = bx_2 + (a \mod b)y_2 *\\*
-
-  *&*\because (a \mod b ) = a - (\lfloor \frac{a}{b} \rfloor \times b)*\\*
-
-  *&*\therefore ax_1 + by_1 = bx_2 + (a-\lfloor \frac{a}{b} \rfloor \times b) y_2 *\\*
-
-\*end*{aligned}</script><p>展开得</p>
-<script type="math/tex; mode=display">
-
-\*begin*{aligned}
-
-  *&*ax_1 + by_1 = ay_2 + bx_2 - \lfloor \frac{a}{b} \rfloor by_2 = *&*ay_2 + b(x_2 - \lfloor \frac{a}{b} \rfloor y_2)*\\*
-
-  *&*\because a = a,b = b *\\*
-
-  *&*\therefore x_1 = y_2 , y_1 = x_2 - \lfloor \frac{a}{b} \rfloor y_2
-
-\*end*{aligned}</script><p>所以就可以递归求解了。</p>
-<p>#### 代码</p>
-<p>```cpp</p>
-<p>void exgcd(int a,int b,int &amp;x,int &amp;y) {</p>
-<p>  <em>if</em> (!b) {</p>
-<p>​    x = 1,y = 0;</p>
-<p>​    <em>return</em> ;</p>
-<p>  }</p>
-<p>  int q = a / b;</p>
-<p>  exgcd(b,a%b,y,x);</p>
-<p>  x = y;</p>
-<p>  y = y - q * x;</p>
-<p>}</p>
-<p>```</p>
-<p>#### 拓展</p>
-<p>考虑形如 $ax + by = c (a,b,c \in \Z)$ 的方程的所有解</p>
-<p>首先由裴蜀定理得，不定方程 $ax + by = c (a,b,c \in \Z)$有解的充要条件为 $(a, b)|c$ 。</p>
-<p>先考虑求一组特殊解的情况：首先将 $a,b,c$ 都除以 $\gcd(a,b)$ 得 $a_0x + b_0y = c_0$</p>
-<p>此时 $\gcd(a_0,b_0) = 1$,所以我们可以求出 $a_0x + b_0y = 1$ 的一组解 $x_0,y_0$ ，则原方程的一组特解为</p>
-<script type="math/tex; mode=display">x_1 = \frac{x_0c}{\gcd(a,b)},y_1 = \frac{y_0c}{\gcd (a,b)}</script><p>然后我们考虑构造所有解的形式：</p>
-<p>设有 $d (d \in \mathbb{Q})$ 那么必有 $a(x_1 + db) + b(y_1 - da) = c$</p>
-<p>同时，这组解需要保证 $db,da \in \Z$</p>
-<p>令当 $d$ 取到最小可能的正值的 $d_x = db,d_y = da$ ,那么任意解中这两个变量与 $x_1,x_2$ 的偏差一定分别是 $d_x,d_y$ 的倍数。</p>
-<p>显然，最小的时候 $d_x = \frac{b}{\gcd (a,b)},d_y = \frac{-a}{\gcd (a,b)}$</p>
-<p>所有解就是 $x = x_0 + kd_x,y = y_0 + kd_y (k \in \Z)$</p>
-<p><strong>*\</strong>***</p>
-<p>### 逆元</p>
-<p>若 $ax \equiv 1 (\mod b)$，则称 $x$ 是 $a$ 关于模 $b$ 的逆元，</p>
-<p>常记做 $a^{-1}$。</p>
-<p>回忆同余的性质。上式等价于 $ax + by = 1$ </p>
-<p>如何求逆元？等价于解方程 $ax + by = 1$</p>
-<p>因此逆元不一定存在：存在的充要条件为 $\gcd (a, b) = 1$</p>
-<p>推论：$p$ 是质数，$p$ 不整除 $a$，则 $a$ 模 $p$ 的逆元存在。</p>
-<p>结论：在 $[0,b)$ 的范围内，若存在 $a$ 关于 $b$ 的逆元，则它是唯一的。</p>
-<p>证明：反证法，若存在 2 个 $a$ 关于 $b$ 的逆元，设其为 $x_1,x_2$，不妨假设 $0 &lt; x_1 &lt; x_2 &lt; b$ </p>
-<p>也就是说 $ax_1 \equiv ax_2 \equiv 1 (\mod b)$</p>
-<p>可以得出 $b | a(x_2 - x_1)$ ，由于 $\gcd(a,b) = 1$，所以 $b | (x_2 - x_1)$</p>
-<p>也就是有 $0 \leq (x_2 - x_1) &lt; b$ , 所以不成立。</p>
-<p>#### 求逆元</p>
-<p>我们刚才说求逆元等价于解方程 $ax + by = 1$，所以直接 <code>exgcd</code> 求解。</p>
-<p>```cpp</p>
-<p>int inv(int a,int b) {</p>
-<p>  int x,y;</p>
-<p>  exgcd(a,b,x,y);</p>
-<p>  <em>return</em> x;</p>
-<p>}</p>
-<p>```</p>
-<p>这样求单个逆元的复杂度是 $O(\log n)$。</p>
-<p>如何 $O(n)$ 求 $1\dots n$ 模质数 $p$ 的逆元？</p>
-<p>- 方法一：递推</p>
-<p>  假设现在要求 $i$ 的逆元 </p>
-<p>  考虑带余除法，设 $p = iq + r$，则有 $iq + r \equiv 0(\mod p)$</p>
-<p>  注意到 $p$ 是质数，因此 $r \not = {0}$，$r$ 的逆元存在</p>
-<p>  等式两边乘 $i^{−1}r^{−1}$，得到 $qr^{−1} + i^{−1} \equiv 0(\mod p)$</p>
-<p>  因此 $i−1 \equiv −qr^{−1} \equiv -\frac{p}{i}(p \mod i)^{−1}(\mod p)$</p>
-<p>  注意这里如果直接算 $-\frac{p}{i}$ 会产生负数，然后 $p -\frac{p}{i} \equiv -\frac{p}{i} (\mod p)$，所以这么算就不会出问题</p>
-<p>  代码</p>
-<p>  ```cpp</p>
-<p>  int inv[N];</p>
-<p>  void prework(int n) {</p>
-<p>​    inv[1] = 1;</p>
-<p>​    <em>for</em> (int i = 2;i &lt;= n;++i) {</p>
-<p>​      inv[i] = (p - p / i) * inv[p % i] % p;</p>
-<p>​    }</p>
-<p>  }</p>
-<p>  ```</p>
-<p>- 方法二：倒推</p>
-<p>例题：组合数取模 1</p>
-<p><em>&gt;</em> <em>回答</em> <em>$<strong>T</strong>$</em> <em>次询问</em></p>
-<p><em>&gt;</em> </p>
-<p><em>&gt;</em> <em>每次询问</em> <em>$**C(n, k)</em> <em>**mod</em> <em>998244353<strong>$</strong>(一个质数)</em></p>
-<p><em>&gt;</em></p>
-<p><em>&gt;</em> <em>$<strong>T ≤ 10^5</strong>$**,</em> <em>$**0</em> <em>**leq</em> <em>k</em> <em>**leq</em> <em>n</em> <em>**leq</em> <em>10^7**$</em></p>
-<p>分析：$C(n, k) = n!/(k!(n − k)!)$</p>
-<p>线性求逆，预处理 $n!$ 以及 $n! ^ {-1}$ </p>
-<p>$O(1)$ 回答询问</p>
-<p><strong>*\</strong>***</p>
-<p>### 线性同余方程</p>
-<p>形如 $ax \equiv c(\mod b)$ 的方程，称为线性同余方程。</p>
-<p>等价于 $ax + by = c$ 因此有解条件为 $\gcd(a, b)|c$</p>
-<p>若 $\gcd(a, b) = 1$，则 $x$ 有唯一解 $x ≡ a^{-1}c(\mod b)$。</p>
-<p>否则设 $(a, b) = d, a = a^{\prime}d, b = b^{\prime}d, c = c’d$</p>
-<p>那么有 $a’x + b’y = c’$，即 $a’x \equiv c’(\mod b’)$</p>
-<p>这里 $(a’, b’) = 1$，因此有 $x ≡ (a’)^{−1}c’(\mod b’)$</p>
-<p>综上，任意的线性同余方程总可以判定为无解，或化为 $x \equiv a(\mod m)$ 的形式。</p>
-<p><strong>*\</strong>***</p>
-<p>### 中国剩余定理</p>
-<p>对于同余方程组 $x \equiv a_i(\mod m_i)(i = 1\dots n)$，</p>
-<p>若 $m_i$ 两两互质，则 $x$ 在 $\mod M$ 下有唯一解。这里 $M = m_1m_2\dots m_n$</p>
-<p>#### 计算方法</p>
-<p>\1. 计算所有模数的积 $M$</p>
-<p>\2. 对于第 $i$ 个方程</p>
-<p>  \1. 计算 $n_i = \frac{M}{m_i}$</p>
-<p>  \2. 因为 $\gcd(n_i,m_i) = 1$，所以 $n_i$ 关于 $m_i$ 的逆元 $t_i$ 存在，求出 $t_i$</p>
-<p>  \3. 计算 $c_i = n_i \times t_i$ </p>
-<p>\3. 方程组的唯一解为 $a = \sum_{i = 1}^k a_ic_i (\mod n)$</p>
-<p>#### 代码</p>
-<p>```cpp</p>
-<p>int CRT(const int a[],const int m[],int n) {</p>
-<p>  int M = 1,ans = 0;</p>
-<p>  <em>for</em> (int i = 1;i &lt;= n;++i) M *= m[i];</p>
-<p>  <em>for</em> (int i = 1;i &lt;= n;++i) {</p>
-<p>​    int ni = M / m[i],ti = inv(ni,m[i]);</p>
-<p>​    ans = (ans + a[i] <em> ni </em> ti) % M;</p>
-<p>  }</p>
-<p>  <em>return</em> ans;</p>
-<p>}</p>
-<p>```</p>
-<p>#### 应用</p>
-<p>某些计数问题或数论问题给出的模数不是质数 </p>
-<p>但是对其质因数分解会发现它没有平方因子，也就是该模数是由一些不重复的质数相乘得到。</p>
-<p>那么我们可以分别对这些模数进行计算，最后用 CRT 合并答案。</p>
-<p><strong>*\</strong>*** </p>
-<p>### Lucas 定理</p>
-<script type="math/tex; mode=display">\binom{n}{m}\bmod p = \binom{\left\lfloor n/p \right\rfloor}{\left\lfloor m/p\right\rfloor}\cdot\binom{n\bmod p}{m\bmod p}\bmod p</script><p>暂时不会证明 会证明了来更新（</p>
-
+          <p>Preface：本文主要是听了洛谷夏令营的网课后做的一些数论笔记，难度大致在提高左右，想获得最好的观看体验，建议您准备好纸笔。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/04/Mathgetstarted/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1450,7 +1173,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
