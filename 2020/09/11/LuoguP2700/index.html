@@ -20,25 +20,24 @@
     var CONFIG = {"hostname":"www.zzlblog.ga","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right"},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="[POI2008]BLO-Blockade 有 $n$ 个节点的无向图，定义封锁一个点为切断这个点的所有连边。求每个节点被封锁后图内的不连通有序点对个数。">
+  <meta name="description" content="P2700 逐个击破 一棵树上有 $k$ 个关键点，要求用最小的代价把这些点划分到不同连通块中。 $2 \leq k \leq n \leq 10^5$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Luogu P3469 [POI2008]BLO-Blockade 解题报告">
-<meta property="og:url" content="https://www.zzlblog.ga/2019/09/08/Luogu%20P3469%20[POI2008]BLO-Blockade%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:title" content="Luogu P2700 逐个击破 解题报告">
+<meta property="og:url" content="https://www.zzlblog.ga/2020/09/11/LuoguP2700/index.html">
 <meta property="og:site_name" content="Doubeecat&#39;s Blog">
-<meta property="og:description" content="[POI2008]BLO-Blockade 有 $n$ 个节点的无向图，定义封锁一个点为切断这个点的所有连边。求每个节点被封锁后图内的不连通有序点对个数。">
+<meta property="og:description" content="P2700 逐个击破 一棵树上有 $k$ 个关键点，要求用最小的代价把这些点划分到不同连通块中。 $2 \leq k \leq n \leq 10^5$">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.ax1x.com/2019/09/08/n3Muo8.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/09/08/n3MWFO.png">
-<meta property="article:published_time" content="2019-09-07T16:17:33.000Z">
-<meta property="article:modified_time" content="2020-06-20T12:27:56.759Z">
+<meta property="article:published_time" content="2020-09-11T14:02:26.000Z">
+<meta property="article:modified_time" content="2020-09-11T14:04:04.720Z">
 <meta property="article:author" content="Doubeecat">
+<meta property="article:tag" content="树上问题">
 <meta property="article:tag" content="图论">
-<meta property="article:tag" content="Tarjan">
-<meta property="article:tag" content="割点">
+<meta property="article:tag" content="思维">
+<meta property="article:tag" content="并查集">
+<meta property="article:tag" content="Kruskal">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/08/n3Muo8.png">
 
-<link rel="canonical" href="https://www.zzlblog.ga/2019/09/08/Luogu%20P3469%20[POI2008]BLO-Blockade%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">
+<link rel="canonical" href="https://www.zzlblog.ga/2020/09/11/LuoguP2700/">
 
 
 <script id="page-configurations">
@@ -51,7 +50,7 @@
   };
 </script>
 
-  <title>Luogu P3469 [POI2008]BLO-Blockade 解题报告 | Doubeecat's Blog</title>
+  <title>Luogu P2700 逐个击破 解题报告 | Doubeecat's Blog</title>
   
 
 
@@ -178,7 +177,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2019/09/08/Luogu%20P3469%20[POI2008]BLO-Blockade%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">
+    <link itemprop="mainEntityOfPage" href="https://www.zzlblog.ga/2020/09/11/LuoguP2700/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/logo.jpg">
@@ -191,7 +190,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Luogu P3469 [POI2008]BLO-Blockade 解题报告
+          Luogu P2700 逐个击破 解题报告
         </h1>
 
         <div class="post-meta">
@@ -200,16 +199,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-09-08 00:17:33" itemprop="dateCreated datePublished" datetime="2019-09-08T00:17:33+08:00">2019-09-08</time>
+              <time title="创建时间：2020-09-11 22:02:26 / 修改时间：22:04:04" itemprop="dateCreated datePublished" datetime="2020-09-11T22:02:26+08:00">2020-09-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-20 20:27:56" itemprop="dateModified" datetime="2020-06-20T20:27:56+08:00">2020-06-20</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -236,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/09/08/Luogu%20P3469%20%5BPOI2008%5DBLO-Blockade%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/08/Luogu%20P3469%20%5BPOI2008%5DBLO-Blockade%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/11/LuoguP2700/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/11/LuoguP2700/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -247,14 +240,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -267,31 +260,29 @@
 
       
         <blockquote>
-<p><a href="https://www.luogu.org/problem/P3469" target="_blank" rel="noopener">[POI2008]BLO-Blockade</a></p>
-<p>有 $n$ 个节点的无向图，定义封锁一个点为切断这个点的所有连边。求每个节点被封锁后图内的不连通有序点对个数。</p>
+<p><a href="https://www.luogu.com.cn/problem/P2700" target="_blank" rel="noopener">P2700 逐个击破</a></p>
+<p>一棵树上有 $k$ 个关键点，要求用最小的代价把这些点划分到不同连通块中。</p>
+<p>$2 \leq k \leq n \leq 10^5$</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>Tarjan。</p>
-<p>首先分类讨论一下，封锁一个点有两种情况：</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>很巧妙的思维题。</p>
+<p>首先一个很暴力的思路是，对于每个关键点求出与其他关键点的路径，然后进行树上差分，但是这样的复杂度是 $O(k^2 \log n)$ 的，而且非常难写。</p>
+<p>我们可以从题面中观察出一些性质：</p>
 <ol>
-<li><p>不是割点</p>
-<p>这种情况好搞，从图中显然可以看出只有自己和其他 $n - 1 $ 个节点不连通，因为是有序节点，所以答案为 $2 \times (n-1)$</p>
-<p><img src="https://s2.ax1x.com/2019/09/08/n3Muo8.png" alt=""></p>
+<li><p>对于 $k$ 个点，最多只需要 $k-1$ 条边就可以把他们划分开。</p>
+<p> 证明十分显然，手玩一下就出来了。</p>
 </li>
-<li><p>是割点</p>
-<p>这种情况就有意思了。</p>
-<p>我们可以发现，如果点 i 为割点，显然去掉这个点之后整个图会变成几个联通块，如下图：</p>
-<p><img src="https://s2.ax1x.com/2019/09/08/n3MWFO.png" alt=""></p>
-<p>这种情况我们也很好发现，把联通块的大小两两相乘可得答案。</p>
-<p>记第 i 个联通块为$s_i$</p>
-<p>但是把联通块大小两两相乘的复杂度为 $O(n^2)$ 不能接受，我们可以在 dfs 时把搜索树子树大小算出来，记为 $siz[i]$</p>
-<p>最后的答案即为： </p>
-<p>$(n - 1 - \sum_{i=1}^{t}siz[s_k])*(1+\sum_{i=1}^{t}siz[s_k])$ </p>
+<li><p>对于每个点所在的连通块来说，关键点与其他非关键点的连边并不影响答案</p>
+<p> 因为每个连通块我们实际上只需要考虑这个关键点与其他关键点的连边，这个关键点与非关键点的连边并不重要。</p>
 </li>
 </ol>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cctype&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N &#x3D; 100010;</span><br><span class="line">const int M &#x3D; 500010&lt;&lt;1;</span><br><span class="line">inline int read() &#123;</span><br><span class="line">	int x &#x3D; 0,f &#x3D; 1;char v &#x3D; getchar();</span><br><span class="line">	while (!isdigit(v)) &#123;if (v &#x3D;&#x3D;&#39;-&#39;) f &#x3D; -1;v &#x3D; getchar();&#125;</span><br><span class="line">	while (isdigit(v)) &#123;x &#x3D; x * 10 + v - 48;v &#x3D; getchar();&#125;</span><br><span class="line">	return x * f;</span><br><span class="line">&#125;</span><br><span class="line">int nxt[M],hd[N],to[M],tot &#x3D; 1,cnt,dfn[N],low[N],siz[N],n,m;</span><br><span class="line">long long ans[N];</span><br><span class="line">bool cut[N];</span><br><span class="line"></span><br><span class="line">inline void adde(int u,int v) &#123;</span><br><span class="line">	to[++tot] &#x3D; v;nxt[tot] &#x3D; hd[u];hd[u] &#x3D; tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline void addedge(int u,int v) &#123;</span><br><span class="line">	adde(u,v);adde(v,u);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void tarjan(int x) &#123;</span><br><span class="line">	dfn[x] &#x3D; low[x] &#x3D; ++cnt;</span><br><span class="line">	siz[x] &#x3D; 1;</span><br><span class="line">	int flag &#x3D; 0,sum &#x3D; 0;</span><br><span class="line">	for (int i &#x3D; hd[x];i;i &#x3D; nxt[i]) &#123;</span><br><span class="line">		int v &#x3D; to[i];</span><br><span class="line">		if (!dfn[v]) &#123;</span><br><span class="line">			tarjan(v);</span><br><span class="line">			low[x] &#x3D; min(low[x],low[v]);</span><br><span class="line">			siz[x] +&#x3D; siz[v];</span><br><span class="line">			if (low[v] &gt;&#x3D; dfn[x]) &#123;</span><br><span class="line">				flag++;</span><br><span class="line">				ans[x] +&#x3D; (long long)siz[v]*(n - siz[v]);</span><br><span class="line">				sum +&#x3D; siz[v];</span><br><span class="line">				if (x !&#x3D; 1 || flag &gt; 1) &#123;</span><br><span class="line">					cut[x] &#x3D; 1;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;	</span><br><span class="line">		else &#123;</span><br><span class="line">			low[x] &#x3D; min(low[x],dfn[v]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if (cut[x]) &#123;</span><br><span class="line">		ans[x] +&#x3D; (long long)(n - sum - 1) * (sum + 1) + (n - 1);</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		ans[x] &#x3D; 2*(n-1);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	n &#x3D; read(),m &#x3D; read();</span><br><span class="line">	for (int i &#x3D; 1;i &lt;&#x3D; m;++i) &#123;</span><br><span class="line">		int x &#x3D; read(),y &#x3D; read();</span><br><span class="line">		if (x &#x3D;&#x3D; y) &#123;</span><br><span class="line">			continue;</span><br><span class="line">		&#125;</span><br><span class="line">		addedge(x,y);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	tarjan(1);</span><br><span class="line">	for (int i &#x3D; 1;i &lt;&#x3D; n;++i) &#123;</span><br><span class="line">		printf(&quot;%lld\n&quot;,ans[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p>部分思路来自于lyd的《算法竞赛进阶指南》</p>
-
+<p>这些性质看上去没什么用，似乎没办法了？我们还可以反向思考一下</p>
+<p>划分到不同连通块，实际上相当于<strong>把一个关键点与其他非关键点连通，并且不与其他关键点联通</strong>，也就把删边转化为了加边。</p>
+<p>结合性质 2，我们可以考虑一下贪心，把所有最大的并且不会导致两个关键点联通的边加上。</p>
+<p>这让我们联想到了 Kruskal，于是，我们可以执行一个类似 Kruskal 的过程：</p>
+<p>首先对所有边进行从大到小的排序，然后从大到小加边，每次加边的时候判断是否加上这条边就会有两关键点联通。如果可以加上，就从总边权减去当前边的边权（因为我们的目的是求让连通块断开的最小权值）这个过程用并查集可以很方便的维护。</p>
+<p>于是我们就解决了这个问题，时间复杂度 $O(n \log n)$，瓶颈在于排序。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ll ans,k,p[N],n,f[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> u,v,w;</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">inline</span> <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> edge &amp; a,<span class="keyword">const</span> edge &amp;b) &#123;</span><br><span class="line">        <span class="keyword">return</span> a.w &gt; b.w;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;edg[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;<span class="keyword">return</span> f[x] == x ? x : f[x] = find(f[x]);&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fx = find(x),fy = find(y);</span><br><span class="line">    <span class="keyword">if</span> (!vis[fx] || !vis[fy]) &#123;<span class="comment">//合并的时候判断两边是否全部都有点，如果有就不连了</span></span><br><span class="line">        f[fx] = fy;</span><br><span class="line">        <span class="keyword">if</span> (vis[fy] == <span class="number">1</span>) vis[fx] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (vis[fx] == <span class="number">1</span>) vis[fy] = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//把连通块中关系继承</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	read(n,k);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= k;++i) &#123;</span><br><span class="line">        <span class="keyword">int</span> x;read(x);vis[x] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;++i) f[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;++i) &#123;</span><br><span class="line">        read(edg[i].u,edg[i].v,edg[i].w);ans += edg[i].w;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(edg+<span class="number">1</span>,edg+n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;++i) &#123;</span><br><span class="line">        edge e = edg[i];</span><br><span class="line">        <span class="keyword">int</span> u = e.u,v = e.v;</span><br><span class="line">        <span class="keyword">if</span> (merge(u,v)) ans -= e.w;</span><br><span class="line">        <span class="comment">//如果有边连就扣去</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -300,9 +291,11 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/%E6%A0%91%E4%B8%8A%E9%97%AE%E9%A2%98/" rel="tag"># 树上问题</a>
               <a href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag"># 图论</a>
-              <a href="/tags/Tarjan/" rel="tag"># Tarjan</a>
-              <a href="/tags/%E5%89%B2%E7%82%B9/" rel="tag"># 割点</a>
+              <a href="/tags/%E6%80%9D%E7%BB%B4/" rel="tag"># 思维</a>
+              <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag"># 并查集</a>
+              <a href="/tags/Kruskal/" rel="tag"># Kruskal</a>
           </div>
 
         
@@ -311,13 +304,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/09/07/Luogu%20P4999%20%E7%83%A6%E4%BA%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BD%9C%E4%B8%9A%20%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/" rel="prev" title="Luogu P4999 烦人的数学作业 解题报告">
-      <i class="fa fa-chevron-left"></i> Luogu P4999 烦人的数学作业 解题报告
+    <a href="/2020/09/05/LuoguP1772/" rel="prev" title="Luogu P1772 [ZJOI2006]物流运输 解题报告">
+      <i class="fa fa-chevron-left"></i> Luogu P1772 [ZJOI2006]物流运输 解题报告
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/09/22/ColortheAxis/" rel="next" title="Luogu1840 Color the Axis_NOI导刊2011提高（05） 解题报告">
-      Luogu1840 Color the Axis_NOI导刊2011提高（05） 解题报告 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -377,7 +367,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路："><span class="nav-number">1.</span> <span class="nav-text">解题思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码："><span class="nav-number">2.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考："><span class="nav-number">3.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">1.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
